@@ -1,14 +1,13 @@
 from datetime import datetime
-
 from flask import Flask
 
 app = Flask(__name__)
 
 
 @app.route("/")
-def hello_world():
+def index():
     print("new web request")
-    return f"hello from disco!!! the datetime is {datetime.now()}"
+    return f"hello, world!!! the datetime is {datetime.now()}"
 
 
 if __name__ == "__main__":
