@@ -9,6 +9,13 @@
     <form action="/search-handling" method="post">
         <p>
           <input type="text" id="search" name="address_search" placeholder="Search..."/>
+          <datalist id="addresses">
+            <option value="Edge">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+          </datalist>
         </p>
     </form>
 
@@ -49,6 +56,7 @@
             });
             var label = address_data.features[0].properties.label
             console.log(address_labels);
+            return address_labels
         }
 
         // getValue();
