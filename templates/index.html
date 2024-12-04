@@ -8,18 +8,29 @@
   <body>
     <form action="/search-handling" method="post">
         <p>
-          <input type="text" id="search" name="address_search" />
+          <input type="text" id="search" name="address_search" placeholder="Search..."/>
         </p>
     </form>
 
     <script>
         function getValue() {
-            var data = document.getElementById("search");
-            console.log(data.value);
+            var input = document.getElementById("search");
+            var input_value = input.value;
+            console.log(input.value);
+            return input_value
         }
-        getValue();
+
+        function sendValue() {
+            var user_input = getValue()
+            const url = "https://geosearch.planninglabs.nyc/v2/autocomplete?text="+user_input
+            console.log(url)
+            var address_response = 
+        }
+
+        // getValue();
+        sendValue();
+
     </script>
     
-      
   </body>
 </html>
