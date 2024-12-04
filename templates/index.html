@@ -44,7 +44,7 @@
         async function parseData() {
             var address_data = await sendValue();
             const address_labels = []
-            address_data.features.array.forEach(element => {
+            address_data.features.forEach(element => {
                 address_labels.push(element.properties.label)
             });
             var label = address_data.features[0].properties.label
