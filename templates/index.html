@@ -21,16 +21,23 @@
         }
 
         function sendValue() {
-            var user_input = getValue()
-            const url = "https://geosearch.planninglabs.nyc/v2/autocomplete?text="+user_input
+            var user_input = getValue();
+            const url = "https://geosearch.planninglabs.nyc/v2/autocomplete?text="+user_input;
             // console.log(url)
             fetch(url)
                 .then( res => res.json() )
                 .then( data => console.log(data) );
+            return data
+        }
+
+        function parseData() {
+            var address_data = sendValue();
+            console.log(address_data.features)
         }
 
         // getValue();
-        sendValue();
+        // sendValue();
+        parseData();
 
     </script>
     
