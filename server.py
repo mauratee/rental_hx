@@ -14,6 +14,7 @@ def index():
 def search_handling():
     text = request.form['address_search']
     print(text)
+    return text
 
 
 if __name__ == "__main__":
