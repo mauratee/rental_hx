@@ -25,14 +25,13 @@
             const url = "https://geosearch.planninglabs.nyc/v2/autocomplete?text="+user_input;
             // console.log(url)
             var data = fetch(url)
-                .then( res => res.json() )
-                .then( data => console.log(data.features) );
+                .then( res => res.json() );
             return data
         }
 
         function parseData() {
             var address_data = sendValue();
-            console.log(address_data.features)
+            console.log(address_data.features[0].properties)
         }
 
         // getValue();
