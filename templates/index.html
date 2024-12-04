@@ -16,7 +16,7 @@
         function getValue() {
             var input = document.getElementById("search");
             var input_value = input.value;
-            console.log(input.value);
+            // console.log(input.value);
             return input_value
         }
 
@@ -43,8 +43,8 @@
 
         async function parseData() {
             var address_data = await sendValue();
-            var name = address_data.features[0].properties.name
-            console.log(name);
+            var label = address_data.features[0].properties.label
+            console.log(label);
         }
 
         // getValue();
