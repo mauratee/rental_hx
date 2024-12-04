@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -9,6 +9,11 @@ def index():
     # print("new web request")
     # return f"hello, world!!! the datetime is {datetime.now()}"
     return render_template('index.html')
+
+@app.route("/search-handling", methods=['POST'])
+def search_handling():
+    text = request.form['address_search']
+    print(text)
 
 
 if __name__ == "__main__":
