@@ -9,13 +9,7 @@
     <form action="/search-handling" method="post">
         <p>
           <input type="text" id="search" name="address_search" placeholder="Search..." list="addresses"/>
-          <datalist id="addresses">
-            <option value="Edge">
-            <option value="Firefox">
-            <option value="Chrome">
-            <option value="Opera">
-            <option value="Safari">
-          </datalist>
+          <datalist id="addresses"></datalist>
         </p>
     </form>
 
@@ -30,9 +24,6 @@
         async function sendValue() {
             var user_input = getValue();
             const url = "https://geosearch.planninglabs.nyc/v2/autocomplete?text="+user_input;
-            // var data = fetch(url)
-            //     .then( res => res.json() )
-            //     .then( data => console.log(data) );
 
             try {
                 const response = await fetch(url);
@@ -59,9 +50,22 @@
             return address_labels
         }
 
+        function createDropdown() {
+            var address_list = parseData()
+            var dataList = document.getElementById("addresses");
+            if (address_list) {
+                address_list.forEach(address => {
+                    const option = document.createElement('option');
+                    option.value = feature.properties.label;
+                    datalist.appendChild(option);
+                });
+            }
+        }
+
         // getValue();
         // sendValue();
-        parseData();
+        // parseData();
+        createDropdown();
 
     </script>
     

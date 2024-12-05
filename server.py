@@ -6,8 +6,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    # print("new web request")
-    # return f"hello, world!!! the datetime is {datetime.now()}"
     return render_template('index.html')
 
 @app.route("/search-handling", methods=['POST'])
