@@ -46,7 +46,7 @@
                 address_labels.push(element.properties.label)
             });
             var label = address_data.features[0].properties.label
-            console.log(address_labels);
+            // console.log(address_labels);
             return address_labels
         }
 
@@ -54,6 +54,7 @@
             var address_list = parseData()
             var dataList = document.getElementById("addresses");
             if (address_list) {
+                console.log(address_list)
                 address_list.forEach(address => {
                     const option = document.createElement('option');
                     option.value = feature.properties.label;
