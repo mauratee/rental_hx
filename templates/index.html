@@ -52,8 +52,8 @@
 
         async function createDropdown() {
             var address_list = await parseData()
-            var dataList = document.getElementById("addresses");
             if (address_list) {
+                var dataList = document.getElementById("addresses");
                 console.log(address_list)
                 address_list.forEach(address => {
                     const option = document.createElement('option');
