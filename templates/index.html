@@ -45,7 +45,7 @@
             address_data.features.forEach(element => {
                 address_labels.push(element.properties.label)
             });
-            var label = address_data.features[0].properties.label
+            // var label = address_data.features[0].properties.label
             // console.log(address_labels);
             return address_labels
         }
@@ -66,7 +66,11 @@
         // getValue();
         // sendValue();
         // parseData();
-        createDropdown();
+        // createDropdown();
+        var input = document.getElementById("search");
+        input.addEventListener('user_input', function(event) {
+            createDropdown();
+        });
 
     </script>
     
