@@ -8,7 +8,7 @@
   <body>
     <form action="/search-handling" method="post">
         <p>
-          <input id="search" name="address_search" placeholder="Search..." list="addresses"/>
+          <input id="search" name="address_search" placeholder="Search..." list="addresses" autocomplete="off" />
           <datalist id="addresses"></datalist>
         </p>
     </form>
@@ -63,10 +63,6 @@
             }
         }
 
-        // getValue();
-        // sendValue();
-        // parseData();
-        // createDropdown();
         var text_box = document.getElementById("search");
         text_box.addEventListener('input', function(event) {
             console.log(event.target.value)
