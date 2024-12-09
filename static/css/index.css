@@ -14,12 +14,12 @@ input {
     padding-left: 0.7rem;
   }
 
-datalist {
+datalist option {
     cursor: pointer;
     line-height: 1.6;
     background-color: white;
 }
 
-option {
+/* option {
     background-color: white;
-}
+} */
