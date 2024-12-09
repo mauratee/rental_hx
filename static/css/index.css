@@ -5,7 +5,7 @@ body {
     color: #0a0a0a;
   }
 
-input{
+input {
     border: 1px solid #0a0a0a;
     margin: 0;
     width: 60%;
@@ -13,3 +13,8 @@ input{
     height: 3rem;
     padding-left: 0.7rem;
   }
+
+datalist {
+    cursor: pointer;
+    line-height: 1.6;
+}
