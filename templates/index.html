@@ -66,8 +66,10 @@
         }
 
         var text_box = document.getElementById("search");
+        var addresses = document.getElementById("addresses");
         text_box.addEventListener('input', function(event) {
             // console.log(event.target.value)
+            addresses.innerHTML = '';
             createDropdown();
         });
 
