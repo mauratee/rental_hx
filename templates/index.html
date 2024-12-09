@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>NYC address search</title>
+    <link href="/static/css/index.css" rel="stylesheet">
   </head>
+
   <body>
     <form action="/search-handling" method="post">
         <p>
@@ -65,7 +67,7 @@
 
         var text_box = document.getElementById("search");
         text_box.addEventListener('input', function(event) {
-            console.log(event.target.value)
+            // console.log(event.target.value)
             createDropdown();
         });
 
