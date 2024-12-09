@@ -17,4 +17,9 @@ input {
 datalist {
     cursor: pointer;
     line-height: 1.6;
+    background-color: white;
+}
+
+option {
+    background-color: white;
 }
