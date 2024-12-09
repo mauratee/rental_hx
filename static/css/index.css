@@ -20,6 +20,10 @@ datalist option {
     background-color: white;
 }
 
+*:focus {
+    outline: none;
+}
+
 /* option {
     background-color: white;
 } */
