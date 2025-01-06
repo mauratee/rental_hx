@@ -1,7 +1,30 @@
-from datetime import datetime
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
+import sqlite3
 
 app = Flask(__name__)
+
+DATABASE = 'database.db'
+
+
+def get_db():
+    if 'db' not in g:
+        g.db = sqlite3.connect(DATABASE)
+        g.db.row_factory = sqlite3.Row
+    return g.db
+
+@app.teardown_appcontext
+def close_db(e=None):
+    db = g.pop('db', None)
+
+    if db is not None:
+        db.close()
+
+def create_tables():
+    with app.app_context():
+        db = get_db()
+        with app.open_resource('schema.sql', mode='r') as f:
+            db.cursor().executescript(f.read())
+        db.commit()
 
 
 @app.route("/")
@@ -14,6 +37,15 @@ def search_handling():
     print(text)
     return text
 
+# @app.route("/apartments")
+
+# def get_db_connection():
+#     conn = sqlite3.connect('database.db')
+#     conn.row_factory = sqlite3.Row
+#     return conn
+
+
 
 if __name__ == "__main__":
+    create_tables()
     app.run(host="0.0.0.0", port=8080, debug=True)
