@@ -27,10 +27,12 @@ def create_tables():
         db.commit()
 
 def seed_db():
-    get_db().execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
-            ('0', '397', 'Bridge Street', 'Brooklyn', '4th floor', '11201')
-            )
-    get_db.commit()
+    with app.app_context():
+        db = get_db()
+        db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
+                ('0', '397', 'Bridge Street', 'Brooklyn', '4th floor', '11201')
+                )
+        db.commit()
     
 
 @app.route("/")
