@@ -26,6 +26,12 @@ def create_tables():
             db.cursor().executescript(f.read())
         db.commit()
 
+def seed_db():
+    get_db().execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
+            ('0', '397', 'Bridge Street', 'Brooklyn', '4th floor', '11201')
+            )
+    get_db.commit()
+    
 
 @app.route("/")
 def index():
@@ -48,4 +54,5 @@ def search_handling():
 
 if __name__ == "__main__":
     create_tables()
+    seed_db()
     app.run(host="0.0.0.0", port=8080, debug=True)
