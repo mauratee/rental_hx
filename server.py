@@ -32,6 +32,9 @@ def seed_db():
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
                 ('0', '397', 'Bridge Street', 'Brooklyn', '4th floor', '11201')
                 )
+        db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
+                ('1', '120', 'Wilson Avenue', 'Brooklyn', '3R', '11237')
+                )
         db.commit()
     
 
@@ -50,8 +53,6 @@ def show_apartments():
     db = get_db()
     apartments = db.execute('SELECT * from apartments').fetchall()
     db.close()
-    # print(apartments)
-    # return f"apartments: {apartments[0]['housenumber']} {apartments[0]['street']}, {apartments[0]['borough']}"
     return render_template('apartments.html', apartments=apartments)
 
 
