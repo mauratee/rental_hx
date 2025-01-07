@@ -45,7 +45,10 @@ def index():
 @app.route("/search-handling", methods=['POST'])
 def search_handling():
     text = request.form['address_search']
-    print(text)
+    address_elements = text.split()
+    for element in address_elements:
+        print(element)
+    # print(text)
     return text
 
 @app.route("/apartments")
@@ -54,7 +57,6 @@ def show_apartments():
     apartments = db.execute('SELECT * from apartments').fetchall()
     db.close()
     return render_template('apartments.html', apartments=apartments)
-
 
 
 
