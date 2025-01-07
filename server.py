@@ -45,7 +45,7 @@ def index():
 @app.route("/search-handling", methods=['POST'])
 def search_handling():
     text = request.form['address_search']
-    address_elements = text.split()
+    address_elements = text.split().replace(",","")
     housenumber = address_elements[0]
     street = f"{address_elements[1]} {address_elements[2]}"
     # for element in address_elements:
