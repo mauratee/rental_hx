@@ -55,7 +55,12 @@ def search_handling():
                                      (housenumber, street, borough)).fetchall()
     db.close()
 
-    return f"{searched_apartments[0]['housenumber']} {searched_apartments[0]['street']}, {searched_apartments[0]['borough']}"
+    if searched_apartments:
+        return "we got a match from the db"
+    else:
+        return "no match in db"
+
+    # return f"{searched_apartments[0]['housenumber']} {searched_apartments[0]['street']}, {searched_apartments[0]['borough']}"
 
 @app.route("/apartments")
 def show_apartments():
