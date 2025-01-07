@@ -45,12 +45,14 @@ def search_handling():
     print(text)
     return text
 
-# @app.route("/apartments")
+@app.route("/apartments")
+def show_apartments():
+    db = get_db()
+    apartments = db.execute('SELECT * from apartments').fetchall()
+    db.close()
+    return render_template('apartments.html', apartments=apartments)
 
-# def get_db_connection():
-#     conn = sqlite3.connect('database.db')
-#     conn.row_factory = sqlite3.Row
-#     return conn
+
 
 
 
