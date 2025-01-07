@@ -44,15 +44,18 @@ def index():
 
 @app.route("/search-handling", methods=['POST'])
 def search_handling():
-    text = request.form['address_search']
-    address_elements = text.replace(",","").split()
+    searched = request.form['address_search']
+    address_elements = searched.replace(",","").split()
     housenumber = address_elements[0]
     street = f"{address_elements[1]} {address_elements[2]}"
     borough = address_elements[3]
-    # for element in address_elements:
-    #     print(element)
-    # print(text)
-    return f"{housenumber} {street}, {borough}"
+
+    db = get_db()
+    searched_apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
+                                     (housenumber, street, borough)).fetchall()
+    db.close()
+
+    return f"{searched_apartments[0]['housenumber']} {searched_apartments[0]['street']}, {searched_apartments[0]['borough']}"
 
 @app.route("/apartments")
 def show_apartments():
