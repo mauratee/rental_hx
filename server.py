@@ -56,7 +56,7 @@ def search_handling():
     db.close()
 
     if searched_apartments:
-        return "we got a match from the db"
+        return f"{searched_apartments[0]['housenumber']} {searched_apartments[0]['street']}, {searched_apartments[0]['borough']}"
     else:
         return "no match in db"
 
