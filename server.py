@@ -30,7 +30,7 @@ def seed_db():
     with app.app_context():
         db = get_db()
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
-                ('0', '397', 'bridge Street', 'brooklyn', '4th floor', '11201')
+                ('0', '397', 'bridge street', 'brooklyn', '4th floor', '11201')
                 )
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
                 ('1', '120', 'wilson avenue', 'brooklyn', '3R', '11237')
