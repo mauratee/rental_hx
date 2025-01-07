@@ -48,10 +48,11 @@ def search_handling():
     address_elements = text.replace(",","").split()
     housenumber = address_elements[0]
     street = f"{address_elements[1]} {address_elements[2]}"
+    borough = address_elements[3]
     # for element in address_elements:
     #     print(element)
     # print(text)
-    return f"{housenumber} {street}"
+    return f"{housenumber} {street}, {borough}"
 
 @app.route("/apartments")
 def show_apartments():
