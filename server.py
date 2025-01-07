@@ -51,8 +51,8 @@ def show_apartments():
     apartments = db.execute('SELECT * from apartments').fetchall()
     db.close()
     # print(apartments)
-    return f"apartments: {apartments[0]['housenumber']} {apartments[0]['street']}, {apartments[0]['borough']}"
-    # return render_template('apartments.html', apartments=apartments)
+    # return f"apartments: {apartments[0]['housenumber']} {apartments[0]['street']}, {apartments[0]['borough']}"
+    return render_template('apartments.html', apartments=apartments)
 
 
 
