@@ -30,10 +30,10 @@ def seed_db():
     with app.app_context():
         db = get_db()
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
-                ('0', '397', 'Bridge Street', 'Brooklyn', '4th floor', '11201')
+                ('0', '397', 'bridge Street', 'brooklyn', '4th floor', '11201')
                 )
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
-                ('1', '120', 'Wilson Avenue', 'Brooklyn', '3R', '11237')
+                ('1', '120', 'wilson avenue', 'brooklyn', '3R', '11237')
                 )
         db.commit()
     
@@ -45,7 +45,7 @@ def index():
 @app.route("/search-handling", methods=['POST'])
 def search_handling():
     searched = request.form['address_search']
-    address_elements = searched.replace(",","").split()
+    address_elements = searched.replace(",","").lower().split()
     housenumber = address_elements[0]
     street = f"{address_elements[1]} {address_elements[2]}"
     borough = address_elements[3]
