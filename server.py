@@ -50,7 +50,9 @@ def show_apartments():
     db = get_db()
     apartments = db.execute('SELECT * from apartments').fetchall()
     db.close()
-    return render_template('apartments.html', apartments=apartments)
+    print(apartments)
+    return apartments
+    # return render_template('apartments.html', apartments=apartments)
 
 
 
