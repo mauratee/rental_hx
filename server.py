@@ -46,10 +46,12 @@ def index():
 def search_handling():
     text = request.form['address_search']
     address_elements = text.split()
+    housenumber = address_elements[0]
+    street = f"{address_elements[1]} {address_elements[2]}"
     # for element in address_elements:
     #     print(element)
     # print(text)
-    return address_elements[0]
+    return f"{housenumber} {street}"
 
 @app.route("/apartments")
 def show_apartments():
