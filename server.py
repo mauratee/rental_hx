@@ -35,6 +35,12 @@ def seed_db():
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
                 ('1', '120', 'wilson avenue', 'brooklyn', '3R', '11237')
                 )
+        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+                ('1984', 'RS', '1')
+                )
+        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+                ('1985', 'RS', '1')
+                )
         db.commit()
     
 
@@ -63,13 +69,18 @@ def search_handling():
     # return f"{searched_apartments[0]['housenumber']} {searched_apartments[0]['street']}, {searched_apartments[0]['borough']}"
 
 @app.route("/apartments")
-def show_apartments():
+def all_apartments():
     db = get_db()
     apartments = db.execute('SELECT * from apartments').fetchall()
     db.close()
     return render_template('apartments.html', apartments=apartments)
 
-
+# @app.route("/apartments/<apartment_id>")
+# def show_apartment(apartment_id):
+#     db = get_db()
+#     apartment = db.execute('SELECT * FROM apartments WHERE id = ?', (apartment_id)).fetchone()
+#     db.close()
+#     return render_template('apartment_record.html', apartment=apartment)
 
 
 if __name__ == "__main__":
