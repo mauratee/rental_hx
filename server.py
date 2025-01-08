@@ -29,15 +29,16 @@ def create_tables():
 def seed_db():
     with app.app_context():
         db = get_db()
-        res = db.execute("SELECT id from apartments where housenumber = ?", ('120')).fetchone()
-        apt_id = res[0]
-        
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
                 ('0', '397', 'bridge street', 'brooklyn', '4th floor', '11201')
                 )
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
                 ('1', '120', 'wilson avenue', 'brooklyn', '3R', '11237')
                 )
+        res = db.execute("SELECT id from apartments where housenumber = ?", ('120')).fetchone()
+        # res = db.fetchone()
+        apt_id = res[0]
+        
         db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
                 ('1984', 'RS', apt_id)
                 )
