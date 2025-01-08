@@ -82,6 +82,12 @@ def all_apartments():
 #     db.close()
 #     return render_template('apartment_record.html', apartment=apartment)
 
+@app.route("/records")
+def all_records():
+    db = get_db()
+    records = db.execute('SELECT * from records').fetchall()
+    db.close()
+    return render_template('records.html', records=records)
 
 if __name__ == "__main__":
     create_tables()
