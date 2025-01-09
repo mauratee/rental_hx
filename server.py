@@ -81,9 +81,9 @@ def all_apartments():
 @app.route("/apartments/<apartment_id>")
 def show_apartment(apartment_id):
     db = get_db()
-    record = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id)).fetchone()
+    records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id)).fetchall()
     db.close()
-    return render_template('records.html', record=record)
+    return render_template('records.html', records=records)
 
 @app.route("/records")
 def all_records():
