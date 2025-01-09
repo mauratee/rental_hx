@@ -36,7 +36,6 @@ def seed_db():
                 ('1', '120', 'wilson avenue', 'brooklyn', '3R', '11237')
                 )
         res = db.execute("SELECT id from apartments where housenumber = ?", ('120',)).fetchone()
-        # res = db.fetchone()
         apt_id = res[0]
         
         db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
@@ -79,12 +78,12 @@ def all_apartments():
     db.close()
     return render_template('apartments.html', apartments=apartments)
 
-# @app.route("/apartments/<apartment_id>")
-# def show_apartment(apartment_id):
-#     db = get_db()
-#     apartment = db.execute('SELECT * FROM apartments WHERE id = ?', (apartment_id)).fetchone()
-#     db.close()
-#     return render_template('apartment_record.html', apartment=apartment)
+@app.route("/apartments/<apartment_id>")
+def show_apartment(apartment_id):
+    db = get_db()
+    record = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id)).fetchone()
+    db.close()
+    return render_template('records.html', record=record)
 
 @app.route("/records")
 def all_records():
