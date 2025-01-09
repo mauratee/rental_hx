@@ -35,7 +35,7 @@ def seed_db():
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
                 ('1', '120', 'wilson avenue', 'brooklyn', '3R', '11237')
                 )
-        res = db.execute("SELECT id from apartments where housenumber = ?", ('120')).fetchall()
+        res = db.execute("SELECT id from apartments where housenumber = ?", ('120',)).fetchall()
         # res = db.fetchone()
         apt_id = res[0]
         
