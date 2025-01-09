@@ -67,7 +67,7 @@ def search_handling():
     apartment_id = searched_apartments[0]['id']
 
     if searched_apartments:
-        return redirect("/apartments/<apartment_id>", apartment_id=apartment_id)
+        return redirect("/apartments/<apartment_id>")
     else:
         return "no match in db"
 
