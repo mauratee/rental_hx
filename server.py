@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request, g, redirect
 import sqlite3
 
 app = Flask(__name__)
@@ -64,8 +64,10 @@ def search_handling():
                                      (housenumber, street, borough)).fetchall()
     db.close()
 
+    apartment_id = searched_apartments[0]['apartment_id']
+
     if searched_apartments:
-        return f"{searched_apartments[0]['housenumber']} {searched_apartments[0]['street']}, {searched_apartments[0]['borough']}"
+        return redirect("/apartments/<apartment_id>", apartment_id=apartment_id)
     else:
         return "no match in db"
 
