@@ -64,7 +64,7 @@ def search_handling():
                                      (housenumber, street, borough)).fetchall()
     db.close()
 
-    apartment_id = searched_apartments[0]['apartment_id']
+    apartment_id = searched_apartments[0]['id']
 
     if searched_apartments:
         return redirect("/apartments/<apartment_id>", apartment_id=apartment_id)
