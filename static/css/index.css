@@ -14,7 +14,7 @@ input {
     padding-left: 0.7rem;
   }
 
-datalist option {
+#addresses option {
     cursor: pointer;
     line-height: 1.6;
     background-color: white;
