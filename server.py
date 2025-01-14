@@ -96,6 +96,6 @@ def all_records():
     return render_template('records.html', records=records)
 
 if __name__ == "__main__":
-    create_tables()
-    seed_db()
+    # create_tables()
+    # seed_db()
     app.run(host="0.0.0.0", port=8080, debug=True)
