@@ -16,9 +16,9 @@
       <form action="/add_record" method="post">
         <label for="year">Choose a year:</label>
         <select id="year" name="year">
-          { % for year in range (1984, 2026) %}
+          {% for year in range (1984, 2026) %}
             <option value="{{year}}">{{year}}</option>
-            {% endfor %}
+          {% endfor %}
           <!-- <option value="1984">Volvo</option>
           <option value="saab">Saab</option>
           <option value="fiat">Fiat</option>
