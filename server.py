@@ -62,12 +62,12 @@ def search_handling():
     db = get_db()
     searched_apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
                                      (housenumber, street, borough)).fetchall()
-    db.close()
 
     apartment_id = searched_apartments[0]['id']
 
     if searched_apartments:
         records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+        db.close()
         return render_template('records.html', records=records)
     else:
         return "no match in db"
