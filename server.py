@@ -64,15 +64,36 @@ def search_handling():
                                      (housenumber, street, borough)).fetchall()
 
     apartment_id = searched_apartments[0]['id']
+    g.apt_id = apartment_id
 
     if searched_apartments:
         records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
         db.close()
         return render_template('records.html', records=records)
     else:
+        db.close()
         return "no match in db"
 
     # return f"{searched_apartments[0]['housenumber']} {searched_apartments[0]['street']}, {searched_apartments[0]['borough']}"
+
+@app.route("/add-record", methods=['POST'])
+def add_record():
+    year = request.form['year']
+    status = request.form['status']
+    if g.apt_id:
+        apartment_id = g.apt_id
+        db = get_db()
+        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+                    (year, status, apartment_id)
+                    )
+        records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+        db.close()
+    
+    return render_template('records.html', records=records)
+
+
+    
+
 
 @app.route("/apartments")
 def all_apartments():
