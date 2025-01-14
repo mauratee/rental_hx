@@ -67,7 +67,8 @@ def search_handling():
     apartment_id = searched_apartments[0]['id']
 
     if searched_apartments:
-        return redirect("/apartments/<apartment_id>")
+        records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+        return render_template('records.html', records=records)
     else:
         return "no match in db"
 
