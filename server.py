@@ -12,12 +12,12 @@ def get_db():
         g.db.row_factory = sqlite3.Row
     return g.db
 
-# @app.teardown_appcontext
-# def close_db(e=None):
-#     db = g.pop('db', None)
+@app.teardown_appcontext
+def close_db(e=None):
+    db = g.pop('db', None)
 
-#     if db is not None:
-#         db.close()
+    if db is not None:
+        db.close()
 
 def create_tables():
     with app.app_context():
@@ -97,5 +97,5 @@ def all_records():
 
 if __name__ == "__main__":
     create_tables()
-    # seed_db()
+    seed_db()
     app.run(host="0.0.0.0", port=8080, debug=True)
