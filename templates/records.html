@@ -14,7 +14,7 @@
     {% endfor %}
 
     <h3>Add a Record</h3>
-      <form action="/add-record/<{{ apartment_id }}>" method="post">
+      <form action="/add-record/{{ apartment_id }}" method="post">
         <label for="year">Choose a year:</label>
         <select id="year" name="year">
           {% for year in range (1984, 2025) %}
