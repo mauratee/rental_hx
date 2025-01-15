@@ -75,7 +75,7 @@ def search_handling():
 
     # return f"{searched_apartments[0]['housenumber']} {searched_apartments[0]['street']}, {searched_apartments[0]['borough']}"
 
-@app.route("/add-record/apartment_id", methods=['POST'])
+@app.route("/add-record/<apartment_id>", methods=['POST'])
 def add_record(apartment_id):
     year = request.form['year']
     status = request.form['status']
