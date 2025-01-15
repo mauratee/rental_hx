@@ -83,6 +83,7 @@ def add_record(apartment_id):
     db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
                     (year, status, apartment_id)
                     )
+    db.commit()
     records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
     db.close()
     
