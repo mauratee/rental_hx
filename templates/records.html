@@ -19,10 +19,6 @@
     {% endif %}
 
 
-    <!-- {% if message %}
-        <p>{{ message }}</p>
-    {% endif %} -->
-
     <h3>Add a Record</h3>
       <form action="/add-record/<{{ apartment_id }}>" method="post">
         <label for="year">Choose a year:</label>
@@ -30,6 +26,9 @@
           {% for year in range (1984, 2025) %}
             <option value="{{year}}">{{year}}</option>
           {% endfor %}
+          {% if housenumber}
+            <input type="hidden" name="housenumber" value="{{ housenumber }}">
+          {% endif %}
         </select>
 
         <label for="status">Apartment Status:</label>

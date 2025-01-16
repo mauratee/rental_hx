@@ -70,8 +70,7 @@ def search_handling():
         return render_template('records.html', records=records, apartment_id=apartment_id)
     else:
         db.close()
-        message = "There are no records yet for the address you entered. Request your rent history using this <a href=\"https://app.justfix.org/en/rh/splash\">link</a> or add a new record below."
-        return render_template('records.html', message=message, housenumber=housenumber, street=street, borough=borough)
+        return render_template('records.html', housenumber=housenumber, street=street, borough=borough)
 
 
 @app.route("/add-record/<apartment_id>", methods=['POST'])
@@ -79,14 +78,19 @@ def add_record(apartment_id):
     year = request.form['year']
     status = request.form['status']
     db = get_db()
-    db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
-                    (year, status, apartment_id)
-                    )
-    db.commit()
-    records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
-    db.close()
+    if apartment_id:
+        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+                        (year, status, apartment_id)
+                        )
+        db.commit()
+        records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+        db.close()
+        return render_template('records.html', records=records, apartment_id=apartment_id)
+    else:
+        housenumber = request.form['housenumber']
+        print(housenumber)
     
-    return render_template('records.html', records=records, apartment_id=apartment_id)
+    return render_template('records.html', apartment_id=apartment_id)
     
 
 
