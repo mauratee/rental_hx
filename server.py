@@ -87,7 +87,7 @@ def add_record(apartment_id):
     records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
     db.close()
     
-    return render_template('records.html', records=records)
+    return render_template('records.html', records=records, apartment_id=apartment_id)
 
 
     
