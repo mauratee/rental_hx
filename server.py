@@ -67,7 +67,7 @@ def search_handling():
         apartment_id = searched_apartments[0]['id']
         records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
         db.close()
-        return render_template('records.html', records=records, apartment_id=apartment_id)
+        return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
     else:
         db.close()
         return render_template('records.html', housenumber=housenumber, street=street, borough=borough)
