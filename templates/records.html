@@ -7,17 +7,21 @@
   </head>
   <body>
     <h3>Records</h3>
-    {% for record in records %}
-        <div class='record'>
-            <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>
-        </div>
-    {% endfor %}
+    {% if records %}
+      {% for record in records %}
+          <div class='record'>
+              <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>
+          </div>
+      {% endfor %}
 
-    <p>There are no records yet for the address you entered. Request your rent history using this <a href="https://app.justfix.org/en/rh/splash">link</a> or add a new record below.</p>
-
-    {% if message %}
-        <p>{{ message }}</p>
+    {% else %}
+      <p>There are no records yet for the address you entered. Request your rent history using this <a href="https://app.justfix.org/en/rh/splash">link</a> or add a new record below.</p>
     {% endif %}
+
+
+    <!-- {% if message %}
+        <p>{{ message }}</p>
+    {% endif %} -->
 
     <h3>Add a Record</h3>
       <form action="/add-record/<{{ apartment_id }}>" method="post">
