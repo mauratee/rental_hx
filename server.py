@@ -97,10 +97,14 @@ def add_record():
         db.commit()
         apartments = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
                                 (housenumber, street, borough)).fetchall()
-        return render_template('apartments.html', apartments=apartments)
-    
-    # return render_template('records.html', apartment_id=apartment_id)
-    
+        apartment_id = apartments[0]['id']
+        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+                        (year, status, apartment_id)
+                        )
+        db.commit()
+        records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+        db.close()
+        return render_template('records.html', records=records, apartment_id=apartment_id)
 
 
 @app.route("/apartments")
