@@ -77,9 +77,9 @@ def search_handling():
 def add_record():
     year = request.form['year']
     status = request.form['status']
-    apartment_id = request.form['apartment_id']
     db = get_db()
-    if apartment_id:
+    if request.form['apartment_id']:
+        apartment_id = request.form['apartment_id']
         db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
                         (year, status, apartment_id)
                         )
