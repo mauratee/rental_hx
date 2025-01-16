@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS apartments;
 DROP TABLE IF EXISTS records;
 
 CREATE TABLE apartments (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     housenumber TEXT NOT NULL,
     street TEXT NOT NULL,
     borough TEXT NOT NULL,

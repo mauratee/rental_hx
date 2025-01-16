@@ -29,6 +29,12 @@
           {% if housenumber %}
             <input type="hidden" name="housenumber" value="{{ housenumber }}">
           {% endif %}
+          {% if street %}
+            <input type="hidden" name="street" value="{{ street }}">
+          {% endif %}
+          {% if borough %}
+            <input type="hidden" name="borough" value="{{ borough }}">
+          {% endif %}
         </select>
 
         <label for="status">Apartment Status:</label>

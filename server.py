@@ -88,9 +88,17 @@ def add_record(apartment_id):
         return render_template('records.html', records=records, apartment_id=apartment_id)
     else:
         housenumber = request.form['housenumber']
-        print(housenumber)
+        street = request.form['street']
+        borough = request.form['borough']
+        db.execute("INSERT INTO apartments (housenumber, street, borough) VALUES (?, ?, ?)",
+                (housenumber, street, borough)
+                )
+        db.commit()
+        apartments = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
+                                (housenumber, street, borough)).fetchall()
+        return render_template('apartments.html', apartments=apartments)
     
-    return render_template('records.html', apartment_id=apartment_id)
+    # return render_template('records.html', apartment_id=apartment_id)
     
 
 
