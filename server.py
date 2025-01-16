@@ -70,9 +70,9 @@ def search_handling():
         return render_template('records.html', records=records, apartment_id=apartment_id)
     else:
         db.close()
-        return "no match in db"
+        message = "There are no records yet for the address you entered. Add a new record below."
+        return render_template('records.html', message=message)
 
-    # return f"{searched_apartments[0]['housenumber']} {searched_apartments[0]['street']}, {searched_apartments[0]['borough']}"
 
 @app.route("/add-record/<apartment_id>", methods=['POST'])
 def add_record(apartment_id):
