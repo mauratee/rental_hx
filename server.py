@@ -73,10 +73,11 @@ def search_handling():
         return render_template('records.html', housenumber=housenumber, street=street, borough=borough)
 
 
-@app.route("/add-record/<apartment_id>", methods=['POST'])
-def add_record(apartment_id):
+@app.route("/add-record", methods=['POST'])
+def add_record():
     year = request.form['year']
     status = request.form['status']
+    apartment_id = request.form['apartment_id']
     db = get_db()
     if apartment_id:
         db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",

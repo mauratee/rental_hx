@@ -20,12 +20,16 @@
 
 
     <h3>Add a Record</h3>
-      <form action="/add-record/<{{ apartment_id }}>" method="post">
+      <form action="/add-record>" method="post">
         <label for="year">Choose a year:</label>
         <select id="year" name="year">
           {% for year in range (1984, 2025) %}
             <option value="{{year}}">{{year}}</option>
           {% endfor %}
+          {% if apartment_id %}
+            <input type="hidden" name="apartment_id" value="{{ apartment_id }}">
+          {% endif %}
+          {% if street %}
           {% if housenumber %}
             <input type="hidden" name="housenumber" value="{{ housenumber }}">
           {% endif %}
