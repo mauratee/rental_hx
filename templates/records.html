@@ -26,7 +26,7 @@
           {% for year in range (1984, 2025) %}
             <option value="{{year}}">{{year}}</option>
           {% endfor %}
-          {% if housenumber}
+          {% if housenumber %}
             <input type="hidden" name="housenumber" value="{{ housenumber }}">
           {% endif %}
         </select>
