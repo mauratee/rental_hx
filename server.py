@@ -63,9 +63,8 @@ def search_handling():
     searched_apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
                                      (housenumber, street, borough)).fetchall()
 
-    apartment_id = searched_apartments[0]['id']
-
     if searched_apartments:
+        apartment_id = searched_apartments[0]['id']
         records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
         db.close()
         return render_template('records.html', records=records, apartment_id=apartment_id)
@@ -88,8 +87,6 @@ def add_record(apartment_id):
     db.close()
     
     return render_template('records.html', records=records, apartment_id=apartment_id)
-
-
     
 
 
@@ -115,6 +112,6 @@ def all_records():
     return render_template('records.html', records=records)
 
 if __name__ == "__main__":
-    create_tables()
-    seed_db()
+    # create_tables()
+    # seed_db()
     app.run(host="0.0.0.0", port=8080, debug=True)
