@@ -70,8 +70,8 @@ def search_handling():
         return render_template('records.html', records=records, apartment_id=apartment_id)
     else:
         db.close()
-        message = "There are no records yet for the address you entered. Add a new record below."
-        return render_template('records.html', message=message)
+        message = "There are no records yet for the address you entered. Request your rent history using this <a href="https://app.justfix.org/en/rh/splash">link/a> or add a new record below."
+        return render_template('records.html', message=message, housenumber=housenumber, street=street, borough=borough)
 
 
 @app.route("/add-record/<apartment_id>", methods=['POST'])
