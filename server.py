@@ -116,7 +116,7 @@ def add_record():
         db.commit()
         records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
         db.close()
-        return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
+        return render_template('records.html', records=records, apartments=apartments)
 
     else:
         housenumber = request.form['housenumber']
