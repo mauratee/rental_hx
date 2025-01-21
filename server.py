@@ -103,10 +103,10 @@ def add_record():
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
-        db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
-                (housenumber, street, borough, unitnumber)
-                )
-        db.commit()
+        # db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
+        #         (housenumber, street, borough, unitnumber)
+        #         )
+        # db.commit()
         apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
                                 (housenumber, street, borough, unitnumber)).fetchall()
         apartment_id = apartment_unit[0]['id']
