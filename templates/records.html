@@ -21,7 +21,9 @@
     {% if records and apartments %}
       {% for apartment in apartments %}
         <h4>{{ apartment['unitnumber'] }}</h4>
+          {{ apartment['id']}}
         {% for record in records %}
+          {{ record['apartment_id']}}
           {% if record['apartment_id'] == apartment['id'] %}
             <div class='record'>
                 <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>
