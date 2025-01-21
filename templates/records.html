@@ -6,15 +6,23 @@
     <title>NYC apartment records</title>
   </head>
   <body>
-    <h3>Records for {{ housenumber }} {{ street }}, {{  borough }}</h3>
-    
+    {% if apartments %}
+      <h3>Records for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'] }}, {{  apartments[0]['borough'] }}</h3>
+    {% else %}
+      <h3>Records for {{ housenumber }} {{ street }}, {{  borough }}</h3>
+    {% endif %}
+
     {% if unit_numbers %}
       {% for unit in unit_numbers %}
         <h4>{{ unit }}</h4>
         {% endfor %}
     {% endif %}
 
-    {% if records %}
+    {% if records and if apartments %}
+      {% for apartment in apartments %}
+        <h4>{{ apartment['unitnumber'] }}</h4>
+      {% endfor %}
+
       {% for record in records %}
           <div class='record'>
               <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>

@@ -63,17 +63,17 @@ def search_handling():
     borough = address_elements[3]
 
     db = get_db()
-    searched_apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
+    apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
                                      (housenumber, street, borough)).fetchall()
 
-    if searched_apartments:
+    if apartments:
         unit_numbers = []
-        for apartment in searched_apartments:
+        for apartment in apartments:
             unit_numbers.append(apartment['unitnumber'])
-        apartment_id = searched_apartments[0]['id']
+        apartment_id = apartments[0]['id']
         records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
         db.close()
-        return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough, unit_numbers=unit_numbers)
+        return render_template('records.html', records=records, apartments=apartments)
     else:
         db.close()
         return render_template('records.html', housenumber=housenumber, street=street, borough=borough)
