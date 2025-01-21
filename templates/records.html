@@ -21,13 +21,20 @@
     {% if records and apartments %}
       {% for apartment in apartments %}
         <h4>{{ apartment['unitnumber'] }}</h4>
+        {% for record in records %}
+          {% if record['apartment_id'] == apartment['unitnumber'] %}
+            <div class='record'>
+                <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
       {% endfor %}
 
-      {% for record in records %}
+      <!-- {% for record in records %}
           <div class='record'>
               <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>
           </div>
-      {% endfor %}
+      {% endfor %} -->
 
     {% else %}
       <p>There are no records yet for the address you entered. Request your rent history using this <a href="https://app.justfix.org/en/rh/splash">link</a> or add a new record below.</p>
