@@ -35,6 +35,9 @@ def seed_db():
         db.execute("INSERT INTO apartments (id, housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?, ?)",
                 ('1', '120', 'wilson avenue', 'brooklyn', '3R', '11237')
                 )
+        db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber, postalcode) VALUES (?, ?, ?, ?, ?)",
+                ('120', 'wilson avenue', 'brooklyn', '2R', '11237')
+                )
         res = db.execute("SELECT id from apartments where housenumber = ?", ('120',)).fetchone()
         apt_id = res[0]
         
@@ -64,6 +67,9 @@ def search_handling():
                                      (housenumber, street, borough)).fetchall()
 
     if searched_apartments:
+        unit_numbers = []
+        for apartment in searched_apartments:
+            unit_numbers.append(apartment['unitnumber'])
         apartment_id = searched_apartments[0]['id']
         records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
         db.close()
