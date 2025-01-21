@@ -12,7 +12,7 @@ CREATE TABLE apartments (
 
 CREATE TABLE records (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    apartment_id TEXT NOT NULL,
+    apartment_id INTEGER NOT NULL,
     year TEXT NOT NULL,
     status TEXT NOT NULL,
     filing_date TEXT,
