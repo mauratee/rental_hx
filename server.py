@@ -81,7 +81,11 @@ def search_handling():
         apt_ids = []
         for apartment in apartments:
             apt_ids.append(apartment['id'])
-        records = db.execute('SELECT * FROM records WHERE apartment_id IN (%s)' % ','.join('?'*len(apt_ids)), apt_ids)).fetchall()
+        records = db.execute('SELECT * FROM records WHERE apartment_id IN' (
+                             'SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
+                                     (housenumber, street, borough))
+                             ).fetchall()
+        # records = db.execute('SELECT * FROM records WHERE apartment_id IN (%s)' % ','.join('?'*len(apt_ids)), apt_ids)).fetchall()
         # records = []
         # for id in apt_ids:
         #     records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
