@@ -75,7 +75,7 @@ def search_handling():
         # for id in apt_ids:
         #     records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
         db.close()
-        return render_template('records.html', records=records, apartments=apartments)
+        return render_template('records.html', records=records, apartments=apartments, apt_ids=apt_ids)
     else:
         db.close()
         return render_template('records.html', housenumber=housenumber, street=street, borough=borough)

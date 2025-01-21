@@ -18,6 +18,12 @@
         {% endfor %}
     {% endif %}
 
+    {% if apt_ids %}
+      {% for apt in apt_ids %}
+        <h4>{{ apt }}</h4>
+        {% endfor %}
+    {% endif %}
+
     {% if records and apartments %}
       {% for apartment in apartments %}
         <h4>{{ apartment['unitnumber'] }}</h4>
