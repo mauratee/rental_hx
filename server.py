@@ -73,7 +73,7 @@ def search_handling():
         apartment_id = searched_apartments[0]['id']
         records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
         db.close()
-        return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
+        return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough, unit_numbers=unit_numbers)
     else:
         db.close()
         return render_template('records.html', housenumber=housenumber, street=street, borough=borough)
@@ -139,6 +139,6 @@ def all_records():
     return render_template('records.html', records=records)
 
 if __name__ == "__main__":
-    # create_tables()
-    # seed_db()
+    create_tables()
+    seed_db()
     app.run(host="0.0.0.0", port=8080, debug=True)
