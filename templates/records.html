@@ -41,7 +41,7 @@
     {% endif %}
 
     {% if apartments %}
-      <h3>Add a Record for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'] }}, {{  apartments[0]['borough'] }}</h3>
+      <h3>Add a Record for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'] }}, {{ apartments[0]['borough'] }}</h3>
     {% else %}
       <h3>Add a Record for {{ housenumber }} {{ street }}, {{  borough }}</h3>
     {% endif %}
@@ -73,17 +73,22 @@
         </select>
 
         {% if apartment_id %}
-            <input type="hidden" name="apartment_id" value="{{ apartment_id }}">
-          {% endif %}
-          {% if housenumber %}
-            <input type="hidden" name="housenumber" value="{{ housenumber }}">
-          {% endif %}
-          {% if street %}
-            <input type="hidden" name="street" value="{{ street }}">
-          {% endif %}
-          {% if borough %}
-            <input type="hidden" name="borough" value="{{ borough }}">
-          {% endif %}
+          <input type="hidden" name="apartment_id" value="{{ apartment_id }}">
+        {% endif %}
+        {% if housenumber %}
+          <input type="hidden" name="housenumber" value="{{ housenumber }}">
+        {% endif %}
+        {% if street %}
+          <input type="hidden" name="street" value="{{ street }}">
+        {% endif %}
+        {% if borough %}
+          <input type="hidden" name="borough" value="{{ borough }}">
+        {% endif %}
+        { if apartments %}
+          <input type="hidden" name="housenumber" value="{{ apartments[0]['housenumber'] }}">
+          <input type="hidden" name="street" value="{{ apartments[0]['street'] }}">
+          <input type="hidden" name="borough" value="{{ apartments[0]['borough'] }}">
+        {% endif %}
 
         <input type="submit">
       </form>
