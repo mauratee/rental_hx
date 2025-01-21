@@ -7,9 +7,9 @@
   </head>
   <body>
     {% if apartments %}
-      <h3>Records for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'] }}, {{  apartments[0]['borough'] }}</h3>
+      <h3>Records for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}</h3>
     {% else %}
-      <h3>Records for {{ housenumber }} {{ street }}, {{  borough }}</h3>
+      <h3>Records for {{ housenumber }} {{ street.capitalize() }}, {{  borough.capitalize() }}</h3>
     {% endif %}
 
     {% if unit_numbers %}
@@ -41,7 +41,7 @@
     {% endif %}
 
     {% if apartments %}
-      <h3>Add a Record for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'] }}, {{ apartments[0]['borough'] }}</h3>
+      <h3>Add a Record for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{ apartments[0]['borough'].capitalize() }}</h3>
     {% else %}
       <h3>Add a Record for {{ housenumber }} {{ street }}, {{  borough }}</h3>
     {% endif %}
