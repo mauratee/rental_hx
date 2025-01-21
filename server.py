@@ -107,14 +107,16 @@ def add_record():
                 (housenumber, street, borough, unitnumber)
                 )
         db.commit()
-        apartments = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
+        apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
                                 (housenumber, street, borough, unitnumber)).fetchall()
-        apartment_id = apartments[0]['id']
+        apartment_id = apartment_unit[0]['id']
         db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
                         (year, status, apartment_id)
                         )
         db.commit()
         records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+        apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
+                                     (housenumber, street, borough)).fetchall()
         db.close()
         return render_template('records.html', records=records, apartments=apartments)
 
