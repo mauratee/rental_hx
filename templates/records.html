@@ -28,6 +28,7 @@
       {% for apartment in apartments %}
         <h4>{{ apartment['unitnumber'] }}</h4>
         {% for record in records %}
+          {{ record }}
           <p>Apartment[id]: {{ apartment['id']}}</p>
           <p>Record[apartment_id]: {{ record['apartment_id']}}</p>
           {% if record['apartment_id'] == apartment['id'] %}

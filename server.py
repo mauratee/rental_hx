@@ -88,10 +88,16 @@ def search_handling():
         # '''
         # records = db.execute(query).fetchall()
         # records = db.execute('SELECT * FROM records WHERE apartment_id IN (%s)' % ','.join('?'*len(apt_ids)), apt_ids)).fetchall()
-        records = []
+        list_of_records = []
         for id in apt_ids:
-            records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
+            list_of_records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
         db.close()
+        records = []
+        for record in list_of_records:
+            if len(record) > 0:
+                for item in record:
+                    records.append(item)
+
         return render_template('records.html', records=records, apartments=apartments)
     else:
         db.close()
