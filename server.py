@@ -47,6 +47,17 @@ def seed_db():
         db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
                 ('1985', 'RS', apt_id)
                 )
+        
+        res = db.execute("SELECT id from apartments where housenumber = ? AND unitnumber = ?", ('120', '2R')).fetchone()
+        apt_id_two = res[0]
+
+        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+                ('1990', 'RC', apt_id_two)
+                )
+        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+                ('1991', 'RC', apt_id_two)
+                )
+
         db.commit()
     
 
@@ -70,12 +81,12 @@ def search_handling():
         apt_ids = []
         for apartment in apartments:
             apt_ids.append(apartment['id'])
-        records = db.execute('SELECT * FROM records WHERE apartment_id IN (%s)' % ("?," * len(apt_ids))[:-1], apt_ids).fetchall()
+        records = db.execute('SELECT * FROM records WHERE apartment_id IN (%s)' % ','.join('?' for i in apt_ids)).fetchall()
         # records = []
         # for id in apt_ids:
         #     records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
         db.close()
-        return render_template('records.html', records=records, apartments=apartments, apt_ids=apt_ids)
+        return render_template('records.html', records=records, apartments=apartments)
     else:
         db.close()
         return render_template('records.html', housenumber=housenumber, street=street, borough=borough)
