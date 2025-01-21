@@ -83,7 +83,7 @@ def search_handling():
             apt_ids.append(apartment['id'])
         query = '''
         SELECT * FROM records WHERE apartment_id IN (
-                             SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?, (housenumber, street, borough))
+                             SELECT id from apartments WHERE housenumber = ? AND street = ? AND borough = ?, (housenumber, street, borough))
                              )
         '''
         records = db.execute(query).fetchall()
