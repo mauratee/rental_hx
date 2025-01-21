@@ -9,7 +9,8 @@
     <h1>Apartments</h1>
     {% for apartment in apartments %}
         <div class='apartment'>
-            <p>{{ apartment['housenumber'] }} {{ apartment['street'] }}, {{ apartment['borough'] }}</p>
+            <p>{{ apartment['housenumber'] }} {{ apartment['street'] }}, {{ apartment['borough'] }} {{ apartment['unitnumber'] }}</p>
+            <p>Apartment Id in DB: {{ apartment['id']}}</p>
         </div>
     {% endfor %}
   </body>
