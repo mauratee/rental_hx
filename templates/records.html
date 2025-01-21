@@ -84,7 +84,7 @@
         {% if borough %}
           <input type="hidden" name="borough" value="{{ borough }}">
         {% endif %}
-        { if apartments %}
+        {% if apartments %}
           <input type="hidden" name="housenumber" value="{{ apartments[0]['housenumber'] }}">
           <input type="hidden" name="street" value="{{ apartments[0]['street'] }}">
           <input type="hidden" name="borough" value="{{ apartments[0]['borough'] }}">
