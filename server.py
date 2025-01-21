@@ -67,11 +67,10 @@ def search_handling():
                                      (housenumber, street, borough)).fetchall()
 
     if apartments:
-        unit_numbers = []
+        apt_ids = []
         for apartment in apartments:
-            unit_numbers.append(apartment['unitnumber'])
-        apartment_id = apartments[0]['id']
-        records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+            apt_ids.append(apartment['id'])
+        records = db.execute('SELECT * FROM records WHERE apartment_id IN ?', (apt_ids,)).fetchall()
         db.close()
         return render_template('records.html', records=records, apartments=apartments)
     else:
@@ -103,10 +102,6 @@ def add_record():
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
-        # db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
-        #         (housenumber, street, borough, unitnumber)
-        #         )
-        # db.commit()
         apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
                                 (housenumber, street, borough, unitnumber)).fetchall()
         apartment_id = apartment_unit[0]['id']
