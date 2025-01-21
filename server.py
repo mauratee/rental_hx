@@ -97,6 +97,27 @@ def add_record():
         borough = apartments[0]['borough']
         db.close()
         return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
+
+    elif 'unit' in request.form:
+        unitnumber = request.form['unit']
+        housenumber = request.form['housenumber']
+        street = request.form['street']
+        borough = request.form['borough']
+        db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
+                (housenumber, street, borough, unitnumber)
+                )
+        db.commit()
+        apartments = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
+                                (housenumber, street, borough, unitnumber)).fetchall()
+        apartment_id = apartments[0]['id']
+        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+                        (year, status, apartment_id)
+                        )
+        db.commit()
+        records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+        db.close()
+        return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
+
     else:
         housenumber = request.form['housenumber']
         street = request.form['street']
