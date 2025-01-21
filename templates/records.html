@@ -7,10 +7,13 @@
   </head>
   <body>
     <h3>Records for {{ housenumber }} {{ street }}, {{  borough }}</h3>
+    
     {% if unit_numbers %}
       {% for unit in unit_numbers %}
         <h4>{{ unit }}</h4>
         {% endfor %}
+    {% endif %}
+
     {% if records %}
       {% for record in records %}
           <div class='record'>
