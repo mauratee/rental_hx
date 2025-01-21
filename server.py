@@ -81,13 +81,6 @@ def search_handling():
         apt_ids = []
         for apartment in apartments:
             apt_ids.append(apartment['id'])
-        # query = '''
-        # SELECT * FROM records WHERE apartment_id IN (
-        #                      SELECT id from apartments WHERE housenumber = ? AND street = ? AND borough = ?, (housenumber, street, borough))
-        #                      )
-        # '''
-        # records = db.execute(query).fetchall()
-        # records = db.execute('SELECT * FROM records WHERE apartment_id IN (%s)' % ','.join('?'*len(apt_ids)), apt_ids)).fetchall()
         list_of_records = []
         for id in apt_ids:
             list_of_records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
@@ -135,16 +128,21 @@ def add_record():
                         (year, status, apartment_id)
                         )
         db.commit()
+
+        apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
+                                     (housenumber, street, borough)).fetchall()
         apt_ids = []
         for apartment in apartments:
             apt_ids.append(apartment['id'])
-        # records = db.execute('SELECT * FROM records WHERE apartment_id IN (?)', (apt_ids,)).fetchall()
-        records = []
+        list_of_records = []
         for id in apt_ids:
-            records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
-        # records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
-        apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
-                                     (housenumber, street, borough)).fetchall()
+            list_of_records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
+        db.close()
+        records = []
+        for record in list_of_records:
+            if len(record) > 0:
+                for item in record:
+                    records.append(item)
         db.close()
         return render_template('records.html', records=records, apartments=apartments)
 
