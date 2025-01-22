@@ -121,7 +121,7 @@ def add_record():
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
-        if 'unitnumber' in request.form and 'unitnumber' is not None:
+        if 'unitnumber' in request.form and 'unitnumber' != "":
             unitnumber = request.form['unitnumber']
             db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
                 (housenumber, street, borough, unitnumber)
