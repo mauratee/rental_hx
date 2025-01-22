@@ -13,11 +13,15 @@
     {% endif %}
 
     {% if unitnumber %}
-      <h4>unitnumber (dropdown):{{ unitnumber }}</h4>
+      <h4>unitnumber (manual entry):{{ unitnumber }}</h4>
     {% endif %}
 
     {% if unit %}
-      <h4>unit (manual entry): {{ unit }}</h4>
+      <h4>unit (dropdown): {{ unit }}</h4>
+    {% endif %}
+
+    {% if apartment_id %}
+      <h4>uapartment id: {{ apartment_id }}</h4>
     {% endif %}
 
     {% if records and apartments %}
