@@ -118,6 +118,9 @@ def add_record():
 
     elif 'unit' in request.form:
         unitnumber = request.form['unit']
+        if 'unitnumber' in request.form:
+            unitnumber = request.form['unitnumber']
+            
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
