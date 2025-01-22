@@ -117,42 +117,42 @@ def add_record():
         return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
 
     elif 'unit' in request.form:
-        unit = request.form['unit']
+        unitnumber = request.form['unit']
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
-        unitnumber = request.form['unitnumber']
-        # if 'unitnumber' in request.form and 'unitnumber' != "":
-        #     unitnumber = request.form['unitnumber']
-        #     db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
-        #         (housenumber, street, borough, unitnumber)
-        #         )
-        #     db.commit()
-        # apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
-        #                         (housenumber, street, borough, unitnumber)).fetchall()
-        # apartment_id = apartment_unit[0]['id']
-        # db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
-        #                 (year, status, apartment_id)
-        #                 )
-        # db.commit()
+        # unitnumber = request.form['unitnumber']
+        if 'unitnumber' in request.form and len('unitnumber') >= 1:
+            unitnumber = request.form['unitnumber']
+            db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
+                (housenumber, street, borough, unitnumber)
+                )
+            db.commit()
+        apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
+                                (housenumber, street, borough, unitnumber)).fetchall()
+        apartment_id = apartment_unit[0]['id']
+        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+                        (year, status, apartment_id)
+                        )
+        db.commit()
 
-        # apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
-        #                              (housenumber, street, borough)).fetchall()
-        # apt_ids = []
-        # for apartment in apartments:
-        #     apt_ids.append(apartment['id'])
-        # list_of_records = []
-        # for id in apt_ids:
-        #     list_of_records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
-        # db.close()
-        # records = []
-        # for record in list_of_records:
-        #     if len(record) > 0:
-        #         for item in record:
-        #             records.append(item)
-        # db.close()
-        # return render_template('records.html', records=records, apartments=apartments, unit=unit, unitnumber=unitnumber)
-        return render_template('records.html', unit=unit, unitnumber=unitnumber, housenumber=housenumber, street=street, borough=borough)
+        apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
+                                     (housenumber, street, borough)).fetchall()
+        apt_ids = []
+        for apartment in apartments:
+            apt_ids.append(apartment['id'])
+        list_of_records = []
+        for id in apt_ids:
+            list_of_records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
+        db.close()
+        records = []
+        for record in list_of_records:
+            if len(record) > 0:
+                for item in record:
+                    records.append(item)
+        db.close()
+        return render_template('records.html', records=records, apartments=apartments, unit=unit, unitnumber=unitnumber)
+        # return render_template('records.html', unit=unit, unitnumber=unitnumber, housenumber=housenumber, street=street, borough=borough)
 
 
     else:
