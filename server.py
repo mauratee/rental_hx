@@ -69,6 +69,8 @@ def index():
 def search_handling():
     searched = request.form['address_search']
     address_elements = searched.replace(",","").lower().split()
+    if len(address_elements) <= 3:
+        return render_template('invalidsearch.html')
     housenumber = address_elements[0]
     street = f"{address_elements[1]} {address_elements[2]}"
     borough = address_elements[3]
