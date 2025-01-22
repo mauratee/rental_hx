@@ -102,26 +102,12 @@ def add_record():
     year = request.form['year']
     status = request.form['status']
     db = get_db()
-    if 'apartment_id' in request.form:
-        # apartment_id = request.form['apartment_id']
-        # db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
-        #                 (year, status, apartment_id)
-        #                 )
-        # db.commit()
-        # records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
-        # apartments = db.execute('SELECT * FROM apartments WHERE id = ?', (apartment_id,)).fetchall()
-        # housenumber = apartments[0]['housenumber']
-        # street = apartments[0]['street']
-        # borough = apartments[0]['borough']
-        # db.close()
-        return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
 
-    elif 'unit' in request.form:
+    if 'unit' in request.form:
         unitnumber = request.form['unit']
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
-        # unitnumber = request.form['unitnumber']
         if 'unitnumber' in request.form and request.form['unitnumber'] != '':
             unitnumber = request.form['unitnumber']
             db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
@@ -152,8 +138,6 @@ def add_record():
                     records.append(item)
         db.close()
         return render_template('records.html', records=records, apartments=apartments)
-        # return render_template('records.html', unit=unit, unitnumber=unitnumber, housenumber=housenumber, street=street, borough=borough)
-
 
     else:
         housenumber = request.form['housenumber']
@@ -212,6 +196,6 @@ def all_records():
     return render_template('records.html', records=records)
 
 if __name__ == "__main__":
-    create_tables()
-    seed_db()
+    # create_tables()
+    # seed_db()
     app.run(host="0.0.0.0", port=8080, debug=True)
