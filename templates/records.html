@@ -39,16 +39,16 @@
           {% if record['apartment_id'] == apartment['id'] %}
             <div class='record'>
                 <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>
-                {% if record['filing_date'] is not None %}
+                {% if record['filing_date'] is not none %}
                   <p>{{ record['filing_date'] }}</p>
                 {% endif %}
-                {% if record['legal_rent'] is not None %}
+                {% if record['legal_rent'] is not none %}
                   <p>{{ record['legal_rent'] }}</p>
                 {% endif %}
-                {% if record['preferential_rent'] is not None %}
+                {% if record['preferential_rent'] is not none %}
                   <p>{{ record['preferential_rent'] }}</p>
                 {% endif %}
-                {% if record['actual_rent'] is not None %}
+                {% if record['actual_rent'] is not none %}
                   <p>{{ record['actual_rent'] }}</p>
                 {% endif %}
             </div>
