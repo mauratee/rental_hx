@@ -10,7 +10,7 @@
       <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
     </p>
 
-    {% if filing_date %}
+    <!-- {% if filing_date %}
      <p>filing date: {{ filing_date }}</p>
      {% endif %}
 
@@ -24,7 +24,7 @@
 
     {% if actual_rent %}
       <p>actual rent: {{ actual_rent }}</p>
-    {% endif %}
+    {% endif %} -->
 
     {% if apartments %}
       <h3>Records for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}</h3>
@@ -39,6 +39,18 @@
           {% if record['apartment_id'] == apartment['id'] %}
             <div class='record'>
                 <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>
+                {% if record['filing_date'] is not None %}
+                  <p>{{ record['filing_date'] }}</p>
+                {% endif %}
+                {% if record['legal_rent'] is not None %}
+                  <p>{{ record['legal_rent'] }}</p>
+                {% endif %}
+                {% if record['preferential_rent'] is not None %}
+                  <p>{{ record['preferential_rent'] }}</p>
+                {% endif %}
+                {% if record['actual_rent'] is not None %}
+                  <p>{{ record['actual_rent'] }}</p>
+                {% endif %}
             </div>
           {% endif %}
         {% endfor %}

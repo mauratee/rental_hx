@@ -133,8 +133,9 @@ def add_record():
         if 'actual-rent' in request.form:
             actual_rent = request.form['actual-rent']
         
-        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
-                        (year, status, apartment_id)
+        db.execute("""INSERT INTO records (year, status, apartment_id, filing_date, legal_rent, preferential_rent, 
+                   actual_rent) VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                        (year, status, apartment_id, filing_date, legal_rent, preferential_rent, actual_rent)
                         )
         db.commit()
 
@@ -153,7 +154,7 @@ def add_record():
                 for item in record:
                     records.append(item)
         db.close()
-        return render_template('records.html', records=records, apartments=apartments, filing_date=filing_date, legal_rent=legal_rent, preferential_rent=preferential_rent, actual_rent=actual_rent)
+        return render_template('records.html', records=records, apartments=apartments)
 
     else:
         housenumber = request.form['housenumber']

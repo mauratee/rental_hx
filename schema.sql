@@ -6,7 +6,7 @@ CREATE TABLE apartments (
     housenumber TEXT NOT NULL,
     street TEXT NOT NULL,
     borough TEXT NOT NULL,
-    unitnumber TEXT,
+    unitnumber TEXT NOT NULL,
     postalcode TEXT
 );
 
