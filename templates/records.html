@@ -38,7 +38,7 @@
         {% for record in records %}
           {% if record['apartment_id'] == apartment['id'] %}
             <div class='record'>
-                <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>
+                <p>{{ record['year'] }} apt status: {{ record['status'] }}, apt id: {{ record['apartment_id'] }}, 
                 {% if record['filing_date'] is not none %}
                   filing date: {{ record['filing_date'] }},
                 {% endif %}
@@ -49,7 +49,7 @@
                   preferential rent: {{ record['preferential_rent'] }},
                 {% endif %}
                 {% if record['actual_rent'] is not none %}
-                  actual rent: {{ record['actual_rent'] }}
+                  actual rent: {{ record['actual_rent'] }}</p>
                 {% endif %}
             </div>
           {% endif %}
