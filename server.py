@@ -118,12 +118,15 @@ def add_record():
 
     elif 'unit' in request.form:
         unitnumber = request.form['unit']
-        if 'unitnumber' in request.form:
-            unitnumber = request.form['unitnumber']
-            
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
+        if 'unitnumber' in request.form:
+            unitnumber = request.form['unitnumber']
+            db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
+                (housenumber, street, borough, unitnumber)
+                )
+            db.commit()
         apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
                                 (housenumber, street, borough, unitnumber)).fetchall()
         apartment_id = apartment_unit[0]['id']
