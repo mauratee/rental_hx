@@ -128,29 +128,29 @@ def add_record():
         #         (housenumber, street, borough, unitnumber)
         #         )
         #     db.commit()
-        apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
-                                (housenumber, street, borough, unitnumber)).fetchall()
-        apartment_id = apartment_unit[0]['id']
-        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
-                        (year, status, apartment_id)
-                        )
-        db.commit()
+        # apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
+        #                         (housenumber, street, borough, unitnumber)).fetchall()
+        # apartment_id = apartment_unit[0]['id']
+        # db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+        #                 (year, status, apartment_id)
+        #                 )
+        # db.commit()
 
-        apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
-                                     (housenumber, street, borough)).fetchall()
-        apt_ids = []
-        for apartment in apartments:
-            apt_ids.append(apartment['id'])
-        list_of_records = []
-        for id in apt_ids:
-            list_of_records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
-        db.close()
-        records = []
-        for record in list_of_records:
-            if len(record) > 0:
-                for item in record:
-                    records.append(item)
-        db.close()
+        # apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
+        #                              (housenumber, street, borough)).fetchall()
+        # apt_ids = []
+        # for apartment in apartments:
+        #     apt_ids.append(apartment['id'])
+        # list_of_records = []
+        # for id in apt_ids:
+        #     list_of_records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
+        # db.close()
+        # records = []
+        # for record in list_of_records:
+        #     if len(record) > 0:
+        #         for item in record:
+        #             records.append(item)
+        # db.close()
         return render_template('records.html', records=records, apartments=apartments, unit=unit, unitnumber=unitnumber)
 
     else:
