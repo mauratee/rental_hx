@@ -103,17 +103,17 @@ def add_record():
     status = request.form['status']
     db = get_db()
     if 'apartment_id' in request.form:
-        apartment_id = request.form['apartment_id']
-        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
-                        (year, status, apartment_id)
-                        )
-        db.commit()
-        records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
-        apartments = db.execute('SELECT * FROM apartments WHERE id = ?', (apartment_id,)).fetchall()
-        housenumber = apartments[0]['housenumber']
-        street = apartments[0]['street']
-        borough = apartments[0]['borough']
-        db.close()
+        # apartment_id = request.form['apartment_id']
+        # db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
+        #                 (year, status, apartment_id)
+        #                 )
+        # db.commit()
+        # records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+        # apartments = db.execute('SELECT * FROM apartments WHERE id = ?', (apartment_id,)).fetchall()
+        # housenumber = apartments[0]['housenumber']
+        # street = apartments[0]['street']
+        # borough = apartments[0]['borough']
+        # db.close()
         return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
 
     elif 'unit' in request.form:
@@ -150,20 +150,35 @@ def add_record():
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
-        db.execute("INSERT INTO apartments (housenumber, street, borough) VALUES (?, ?, ?)",
-                (housenumber, street, borough)
+        unitnumber = request.form['unitnumber']
+        db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
+                (housenumber, street, borough, unitnumber)
                 )
         db.commit()
-        apartments = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
-                                (housenumber, street, borough)).fetchall()
-        apartment_id = apartments[0]['id']
+        apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
+                                (housenumber, street, borough, unitnumber)).fetchall()
+        apartment_id = apartment_unit[0]['id']
         db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
                         (year, status, apartment_id)
                         )
         db.commit()
-        records = db.execute('SELECT * FROM records WHERE apartment_id = ?', (apartment_id,)).fetchall()
+        
+        apartments = db.execute('SELECT * from apartments WHERE housenumber = ? AND street = ? AND borough = ?', 
+                                     (housenumber, street, borough)).fetchall()
+        apt_ids = []
+        for apartment in apartments:
+            apt_ids.append(apartment['id'])
+        list_of_records = []
+        for id in apt_ids:
+            list_of_records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
         db.close()
-        return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
+        records = []
+        for record in list_of_records:
+            if len(record) > 0:
+                for item in record:
+                    records.append(item)
+        db.close()
+        return render_template('records.html', records=records, apartments=apartments)
 
 
 @app.route("/apartments")
