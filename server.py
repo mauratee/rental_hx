@@ -151,7 +151,7 @@ def add_record():
                 for item in record:
                     records.append(item)
         db.close()
-        return render_template('records.html', records=records, apartments=apartments, unit=unit, unitnumber=unitnumber)
+        return render_template('records.html', records=records, apartments=apartments)
         # return render_template('records.html', unit=unit, unitnumber=unitnumber, housenumber=housenumber, street=street, borough=borough)
 
 
