@@ -6,6 +6,10 @@
     <title>NYC apartment records</title>
   </head>
   <body>
+    <p>
+      <a href="index.html">New Search</a>
+    </p>
+
     {% if apartments %}
       <h3>Records for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}</h3>
     {% else %}
