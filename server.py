@@ -122,12 +122,12 @@ def add_record():
         street = request.form['street']
         borough = request.form['borough']
         # unitnumber = request.form['unitnumber']
-        if 'unitnumber' in request.form and 'unitnumber' != "":
-            unitnumber = request.form['unitnumber']
-            db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
-                (housenumber, street, borough, unitnumber)
-                )
-            db.commit()
+        # if 'unitnumber' in request.form and 'unitnumber' != "":
+        #     unitnumber = request.form['unitnumber']
+        #     db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
+        #         (housenumber, street, borough, unitnumber)
+        #         )
+        #     db.commit()
         apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
                                 (housenumber, street, borough, unitnumber)).fetchall()
         apartment_id = apartment_unit[0]['id']
