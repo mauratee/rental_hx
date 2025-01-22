@@ -117,10 +117,11 @@ def add_record():
         return render_template('records.html', records=records, apartment_id=apartment_id, housenumber=housenumber, street=street, borough=borough)
 
     elif 'unit' in request.form:
-        unitnumber = request.form['unit']
+        unit = request.form['unit']
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
+        unitnumber = request.form['unitnumber']
         if 'unitnumber' in request.form and 'unitnumber' != "":
             unitnumber = request.form['unitnumber']
             db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
@@ -150,7 +151,7 @@ def add_record():
                 for item in record:
                     records.append(item)
         db.close()
-        return render_template('records.html', records=records, apartments=apartments)
+        return render_template('records.html', records=records, apartments=apartments, unit=unit, unitnumber=unitnumber)
 
     else:
         housenumber = request.form['housenumber']

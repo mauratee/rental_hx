@@ -12,10 +12,12 @@
       <h3>Records for {{ housenumber }} {{ street.capitalize() }}, {{  borough.capitalize() }}</h3>
     {% endif %}
 
-    {% if unit_numbers %}
-      {% for unit in unit_numbers %}
-        <h4>{{ unit }}</h4>
-        {% endfor %}
+    {% if unitnumber %}
+      <h4>unitnumber (dropdown):{{ unitnumber }}</h4>
+    {% endif %}
+
+    {% if unit %}
+      <h4>unit (manual entry): {{ unit }}</h4>
     {% endif %}
 
     {% if records and apartments %}
@@ -29,12 +31,6 @@
           {% endif %}
         {% endfor %}
       {% endfor %}
-
-      <!-- {% for record in records %}
-          <div class='record'>
-              <p>{{ record['year'] }} {{ record['status'] }}, {{ record['apartment_id'] }}</p>
-          </div>
-      {% endfor %} -->
 
     {% else %}
       <p>There are no records yet for the address you entered. Request your rent history using this <a href="https://app.justfix.org/en/rh/splash">link</a> or add a new record below.</p>
