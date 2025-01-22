@@ -48,12 +48,18 @@
     
       <form action="/add-record" method="post">
         {% if apartments %}
-        <label for="unit">Choose a unit:</label>
-        <select id="unit" name="unit">
-          {% for apartment in apartments %}
-          <option value="{{apartment['unitnumber']}}">{{apartment['unitnumber']}}</option>
-          {% endfor %}
-        </select>
+        <p>
+          <label for="unit">Choose a unit:</label>
+          <select id="unit" name="unit">
+            {% for apartment in apartments %}
+            <option value="{{apartment['unitnumber']}}">{{apartment['unitnumber']}}</option>
+            {% endfor %}
+          </select>
+        </p>
+        <p>
+          <label for="unitnumber">Enter a Unit Number:</label>
+          <input id="unitnumber" name="unitnumber"/>
+        </p>
         {% endif %}
         <label for="year">Choose a year:</label>
         <select id="year" name="year">
