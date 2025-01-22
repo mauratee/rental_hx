@@ -119,6 +119,20 @@ def add_record():
         apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
                                 (housenumber, street, borough, unitnumber)).fetchall()
         apartment_id = apartment_unit[0]['id']
+        
+        filing_date = None
+        legal_rent = None
+        preferential_rent = None
+        actual_rent = None
+        if 'filing-date' in request.form:
+            filing_date = request.form['filing-date']
+        if 'legal-rent' in request.form:
+            legal_rent = request.form['legal-rent']
+        if 'pref-rent' in request.form:
+            preferential_rent = request.form['pref-rent']
+        if 'actual-rent' in request.form:
+            actual_rent = request.form['actual-rent']
+        
         db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
                         (year, status, apartment_id)
                         )
@@ -139,7 +153,7 @@ def add_record():
                 for item in record:
                     records.append(item)
         db.close()
-        return render_template('records.html', records=records, apartments=apartments)
+        return render_template('records.html', records=records, apartments=apartments, filing_date=filing_date, legal_rent=legal_rent, preferential_rent=preferential_rent, actual_rent=actual_rent)
 
     else:
         housenumber = request.form['housenumber']

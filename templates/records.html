@@ -10,6 +10,22 @@
       <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
     </p>
 
+    {% if filing_date %}
+     <p>filing date: {{ filing_date }}</p>
+     {% endif %}
+
+    {% if legal_rent %}
+     <p>legal rent: {{ legal_rent }}</p>
+    {% endif %}
+
+    {% if preferential_rent %}
+      <p>preferential rent: {{ preferential_rent }}</p>
+    {% endif %}
+
+    {% if actual_rent %}
+      <p>actual rent: {{ actual_rent }}</p>
+    {% endif %}
+
     {% if apartments %}
       <h3>Records for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}</h3>
     {% else %}
