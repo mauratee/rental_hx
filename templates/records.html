@@ -56,11 +56,12 @@
             {% endfor %}
           </select>
         </p>
+        {% endif %}
+        
         <p>
           <label for="unitnumber">Enter a Unit Number:</label>
           <input id="unitnumber" name="unitnumber"/>
         </p>
-        {% endif %}
         <label for="year">Choose a year:</label>
         <select id="year" name="year">
           {% for year in range (1984, 2025) %}
