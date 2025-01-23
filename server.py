@@ -162,6 +162,7 @@ def add_record():
                 for item in record:
                     records.append(item)
         db.close()
+        records = sorted(records, key=lambda x: x['year'])
         return render_template('records.html', records=records, apartments=apartments)
 
     else:
@@ -217,6 +218,7 @@ def add_record():
                 for item in record:
                     records.append(item)
         db.close()
+        records = sorted(records, key=lambda x: x['year'])
         return render_template('records.html', records=records, apartments=apartments)
 
 
