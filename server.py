@@ -124,13 +124,13 @@ def add_record():
         legal_rent = None
         preferential_rent = None
         actual_rent = None
-        if 'filing-date' in request.form:
+        if 'filing-date' in request.form and request.form['filing-date'] != '':
             filing_date = request.form['filing-date']
-        if 'legal-rent' in request.form:
+        if 'legal-rent' in request.form and request.form['legal-rent'] != '':
             legal_rent = request.form['legal-rent']
-        if 'pref-rent' in request.form:
+        if 'pref-rent' in request.form and request.form['pref-rent'] != '':
             preferential_rent = request.form['pref-rent']
-        if 'actual-rent' in request.form:
+        if 'actual-rent' in request.form and request.form['actual-rent'] != '':
             actual_rent = request.form['actual-rent']
         
         db.execute("""INSERT INTO records (year, status, apartment_id, filing_date, legal_rent, preferential_rent, 
