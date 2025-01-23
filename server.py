@@ -93,7 +93,7 @@ def search_handling():
                 for item in record:
                     records.append(item)
         records = sorted(records, key=lambda x: x['year'])
-
+        apartments = sorted(apartments, key=lambda x: x['unitnumber'])
         return render_template('records.html', records=records, apartments=apartments)
     else:
         db.close()
@@ -163,6 +163,7 @@ def add_record():
                     records.append(item)
         db.close()
         records = sorted(records, key=lambda x: x['year'])
+        apartments = sorted(apartments, key=lambda x: x['unitnumber'])
         return render_template('records.html', records=records, apartments=apartments)
 
     else:
@@ -219,6 +220,7 @@ def add_record():
                     records.append(item)
         db.close()
         records = sorted(records, key=lambda x: x['year'])
+        apartments = sorted(apartments, key=lambda x: x['unitnumber'])
         return render_template('records.html', records=records, apartments=apartments)
 
 
