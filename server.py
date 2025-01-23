@@ -190,8 +190,7 @@ def add_record():
         
         db.execute("""INSERT INTO records (year, status, apartment_id, filing_date, legal_rent, preferential_rent, 
                    actual_rent, reasons_difference, lease_dates) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                        (year, status, apartment_id, filing_date, legal_rent, preferential_rent, actual_rent, 
-                         reasons_difference, lease_dates)
+                        (year, status, apartment_id, filing_date, legal_rent, preferential_rent, actual_rent, reasons_difference, lease_dates)
                         )
         db.commit()
         
