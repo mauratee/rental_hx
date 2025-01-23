@@ -49,10 +49,10 @@
                   preferential rent: {{ record['preferential_rent'] }},
                 {% endif %}
                 {% if record['actual_rent'] is not none %}
-                  actual rent: {{ record['actual_rent'] }}
+                  actual rent: {{ record['actual_rent'] }},
                 {% endif %}
                 {% if record['reasons_difference'] is not none %}
-                  reasons different: {{ record['reasons_difference'] }}
+                  reasons different: {{ record['reasons_difference'] }},
                 {% endif %}
                 {% if record['lease_dates'] is not none %}
                   lease dates: {{ record['lease_dates'] }}</p>
