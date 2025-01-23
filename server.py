@@ -132,6 +132,15 @@ def add_record():
             preferential_rent = request.form['pref-rent']
         if 'actual-rent' in request.form and request.form['actual-rent'] != '':
             actual_rent = request.form['actual-rent']
+        if 'reasons-diff' in request.form and request.form['reasons-diff'] != '':
+            reasons_difference = request.form['reasons-diff']
+        if 'lease-dates' in request.form and request.form['lease-dates'] != '':
+            lease_dates = request.form['lease-dates']
+        
+        db.execute("""INSERT INTO records (year, status, apartment_id, filing_date, legal_rent, preferential_rent, 
+                   actual_rent, reasons_difference, lease_dates) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                        (year, status, apartment_id, filing_date, legal_rent, preferential_rent, actual_rent, reasons_difference, lease_dates)
+                        )
         
         db.execute("""INSERT INTO records (year, status, apartment_id, filing_date, legal_rent, preferential_rent, 
                    actual_rent) VALUES (?, ?, ?, ?, ?, ?, ?)""",
