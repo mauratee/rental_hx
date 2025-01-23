@@ -168,8 +168,23 @@ def add_record():
         apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
                                 (housenumber, street, borough, unitnumber)).fetchall()
         apartment_id = apartment_unit[0]['id']
-        db.execute("INSERT INTO records (year, status, apartment_id) VALUES (?, ?, ?)",
-                        (year, status, apartment_id)
+        
+        filing_date = None
+        legal_rent = None
+        preferential_rent = None
+        actual_rent = None
+        if 'filing-date' in request.form and request.form['filing-date'] != '':
+            filing_date = request.form['filing-date']
+        if 'legal-rent' in request.form and request.form['legal-rent'] != '':
+            legal_rent = request.form['legal-rent']
+        if 'pref-rent' in request.form and request.form['pref-rent'] != '':
+            preferential_rent = request.form['pref-rent']
+        if 'actual-rent' in request.form and request.form['actual-rent'] != '':
+            actual_rent = request.form['actual-rent']
+        
+        db.execute("""INSERT INTO records (year, status, apartment_id, filing_date, legal_rent, preferential_rent, 
+                   actual_rent) VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                        (year, status, apartment_id, filing_date, legal_rent, preferential_rent, actual_rent)
                         )
         db.commit()
         
