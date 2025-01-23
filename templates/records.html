@@ -123,6 +123,16 @@
           <input type="text" id="actual-rent" name="actual-rent"/>
         </p>
 
+        <p>
+          <label for="reasons-diff">Reasons Different or Change:</label>
+          <input type="text" id="reasons-diff" name="reasons-diff"/>
+        </p>
+
+        <p>
+          <label for="lease-dates">Lease Dates:</label>
+          <input type="text" id="lease-dates" name="lease-dates"/>
+        </p>
+
         {% if apartment_id %}
           <input type="hidden" name="apartment_id" value="{{ apartment_id }}">
         {% endif %}

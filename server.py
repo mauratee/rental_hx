@@ -168,11 +168,13 @@ def add_record():
         apartment_unit = db.execute('SELECT * FROM apartments WHERE housenumber = ? AND street = ? AND borough = ? AND unitnumber = ?', 
                                 (housenumber, street, borough, unitnumber)).fetchall()
         apartment_id = apartment_unit[0]['id']
-        
+
         filing_date = None
         legal_rent = None
         preferential_rent = None
         actual_rent = None
+        reasons_difference = None
+        lease_dates = None
         if 'filing-date' in request.form and request.form['filing-date'] != '':
             filing_date = request.form['filing-date']
         if 'legal-rent' in request.form and request.form['legal-rent'] != '':
@@ -181,10 +183,15 @@ def add_record():
             preferential_rent = request.form['pref-rent']
         if 'actual-rent' in request.form and request.form['actual-rent'] != '':
             actual_rent = request.form['actual-rent']
+        if 'reasons-diff' in request.form and request.form['reasons-diff'] != '':
+            reasons_difference = request.form['reasons-diff']
+        if 'lease-dates' in request.form and request.form['lease-dates'] != '':
+            lease_dates = request.form['lease-dates']
         
         db.execute("""INSERT INTO records (year, status, apartment_id, filing_date, legal_rent, preferential_rent, 
-                   actual_rent) VALUES (?, ?, ?, ?, ?, ?, ?)""",
-                        (year, status, apartment_id, filing_date, legal_rent, preferential_rent, actual_rent)
+                   actual_rent, reasons_difference, lease_dates) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                        (year, status, apartment_id, filing_date, legal_rent, preferential_rent, actual_rent, 
+                         reasons_difference, lease_dates)
                         )
         db.commit()
         
