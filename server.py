@@ -124,6 +124,8 @@ def add_record():
         legal_rent = None
         preferential_rent = None
         actual_rent = None
+        reasons_difference = None
+        lease_dates = None
         if 'filing-date' in request.form and request.form['filing-date'] != '':
             filing_date = request.form['filing-date']
         if 'legal-rent' in request.form and request.form['legal-rent'] != '':
