@@ -63,10 +63,11 @@ text_box.addEventListener('input', function(event) {
 const listItems = document.querySelectorAll("li");
 
 listItems.forEach(item => {
-  item.addEventListener('click', () => {
-    alert("you clicked an li element!");
-    console.log("you clicked an li element!");
+    console.log("you selected an li element")
+//   item.addEventListener('click', () => {
+//     alert("you clicked an li element!");
+//     console.log("you clicked an li element!");
     // text_box.value = item.textContent;
-  });
+//   });
 
 });
