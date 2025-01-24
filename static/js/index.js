@@ -46,6 +46,7 @@ async function createDropdown() {
             const option = document.createElement('li');
             const span = document.createElement('span');
             span.textContent = address;
+            span.id = "address"
             // option.value = address;
             option.appendChild(span)
             datalist.appendChild(option);
@@ -60,7 +61,7 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
-const element = document.getElementById("addresses");
+const element = document.getElementById("address");
 
     element.onmouseover = function() {
       this.classList.add("highlight");
