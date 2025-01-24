@@ -17,6 +17,9 @@ input {
 li {
     cursor: pointer;
     list-style-type: none;
+    box-sizing: border-box;
+    line-height: 25.6px;
+    padding-left: 2px;
 }
 
 .address-element:hover{

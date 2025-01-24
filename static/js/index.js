@@ -48,7 +48,6 @@ async function createDropdown() {
             span.textContent = address;
             option.className = "address-element";
             span.addEventListener('click', () => {
-                // console.log("you clicked an li element!");
                 search_input.value = span.textContent;
               });
             // option.value = address;
@@ -65,14 +64,3 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
-const listItems = document.querySelectorAll("li");
-
-listItems.forEach(item => {
-    // console.log("you selected an li element")
-  item.addEventListener('click', () => {
-    alert("you clicked an li element!");
-    console.log("you clicked an li element!");
-    text_box.value = item.textContent;
-  });
-
-});
