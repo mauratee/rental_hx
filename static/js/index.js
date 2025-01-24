@@ -65,7 +65,8 @@ const listItems = document.querySelectorAll("span");
 
 listItems.forEach(item => {
   item.addEventListener('click', () => {
-    text_box.value = item.textContent;
+    console.log("you clicked a span element!")
+    // text_box.value = item.textContent;
   });
-  
+
 });
