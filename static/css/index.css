@@ -16,5 +16,5 @@ input {
 
 #addresses ul {
     cursor: pointer;
-    list-style-type: none
+    list-style-type: none;
 }
