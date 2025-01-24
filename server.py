@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, g, redirect
-import sqlite3, os, jsonify
+from flask import Flask, render_template, request, g, jsonify
+import sqlite3, os
 
 app = Flask(__name__)
 
