@@ -61,13 +61,14 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
-const element = document.getElementById("addresses");
+const listItems = document.querySelectorAll('li');
 
-    element.onmouseover = function() {
-      this.classList.add("highlight");
-    };
+listItems.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    item.classList.add('highlight');
+  });
 
-    element.onmouseout = function() {
-      this.classList.remove("highlight");
-    };
-
+  item.addEventListener('mouseout', () => {
+    item.classList.remove('highlight');
+  });
+});
