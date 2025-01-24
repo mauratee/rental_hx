@@ -14,16 +14,7 @@ input {
     padding-left: 0.7rem;
   }
 
-#addresses option {
+#addresses ul {
     cursor: pointer;
-    line-height: 1.6;
-    background-color: white;
+    list-style-type: none
 }
-
-*:focus {
-    outline: none;
-}
-
-/* option {
-    background-color: white;
-} */
