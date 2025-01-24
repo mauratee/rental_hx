@@ -61,7 +61,7 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
-const listItems = document.querySelectorAll('li');
+const listItems = document.querySelectorAll('span');
 
 listItems.forEach(item => {
   item.addEventListener('mouseover', () => {
