@@ -61,7 +61,7 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
-const element = document.getElementById("address-element");
+const element = document.getElementById("addresses");
 
     element.onmouseover = function() {
       this.classList.add("highlight");
