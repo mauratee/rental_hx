@@ -20,9 +20,5 @@ li {
 }
 
 .address-element:hover{
-  background-color: #205081;
+  background-color: lightpink;
 }
-
-/* .highlight {
-  background-color: yellow;
-} */
