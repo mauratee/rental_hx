@@ -1,6 +1,4 @@
-
 "use strict";
-
 
 fetch('/get_token')
     .then(response => response.json())
@@ -12,7 +10,7 @@ fetch('/get_token')
             container: 'map',
             style: 'mapbox://styles/mapbox/navigation-night-v1',
             center: [-73.9, 40.7],
-            zoom: 12 // starting zoom (0-22), higher number is more detail
+            zoom: 20 // starting zoom (0-22), higher number is more detail
         });
     });
 
