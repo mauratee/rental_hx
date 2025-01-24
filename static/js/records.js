@@ -17,10 +17,10 @@ fetch('/get_token')
         // Use mapboxToken in your Mapbox GL JS code
         mapboxgl.accessToken = mapboxToken;
         const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/dark-v11',
-            center: [-73.9, 40.7], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-            zoom: 9 // starting zoom
+            container: 'map',
+            style: 'mapbox://styles/mapbox/navigation-night-v1',
+            center: [-73.9, 40.7],
+            zoom: 12 // starting zoom (0-22), higher number is more detail
         });
     });
 
