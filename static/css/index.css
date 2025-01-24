@@ -14,7 +14,7 @@ input {
     padding-left: 0.7rem;
   }
 
-#addresses ul li{
+li {
     cursor: pointer;
     list-style-type: none;
 }
