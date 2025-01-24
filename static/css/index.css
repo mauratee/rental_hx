@@ -19,6 +19,10 @@ li {
     list-style-type: none;
 }
 
-.highlight {
-  background-color: yellow;
+.address-element:hover{
+  background-color: #205081;
 }
+
+/* .highlight {
+  background-color: yellow;
+} */

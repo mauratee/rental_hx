@@ -46,7 +46,7 @@ async function createDropdown() {
             const option = document.createElement('li');
             const span = document.createElement('span');
             span.textContent = address;
-            span.id = "address-element";
+            span.class = "address-element";
             // option.value = address;
             option.appendChild(span)
             datalist.appendChild(option);
@@ -61,14 +61,14 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
-const listItems = document.querySelectorAll('span');
+// const listItems = document.querySelectorAll('span');
 
-listItems.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    item.classList.add('highlight');
-  });
+// listItems.forEach(item => {
+//   item.addEventListener('mouseover', () => {
+//     item.classList.add('highlight');
+//   });
 
-  item.addEventListener('mouseout', () => {
-    item.classList.remove('highlight');
-  });
-});
+//   item.addEventListener('mouseout', () => {
+//     item.classList.remove('highlight');
+//   });
+// });
