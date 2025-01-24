@@ -23,6 +23,11 @@ li {
     margin-left: 0px;
 }
 
+span {
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
 .address-element:hover{
   background-color: lightpink;
 }
