@@ -60,3 +60,13 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
+const element = document.getElementById("addresses");
+
+    element.onmouseover = function() {
+      this.classList.add("highlight");
+    };
+
+    element.onmouseout = function() {
+      this.classList.remove("highlight");
+    };
+
