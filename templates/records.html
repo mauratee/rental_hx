@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width">
     <title>NYC apartment records</title>
     <link href="/static/css/records.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js"></script>
+    <style>
+      body { margin: 0; padding: 0; }
+      #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+      </style>
   </head>
   <body>
     <p>
       <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
     </p>
+
+    <div id="map"></div>
 
     {% if apartments %}
       <h3>Records for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}</h3>
