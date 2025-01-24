@@ -61,3 +61,11 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
+const listItems = document.querySelectorAll("span");
+
+listItems.forEach(item => {
+  item.addEventListener('click', () => {
+    text_box.value = item.textContent;
+  });
+  
+});
