@@ -35,6 +35,7 @@ async function parseData() {
 }
 
 async function createDropdown() {
+    var search_input = document.getElementById("search");
     var address_list = await parseData()
     if (address_list) {
         var datalist = document.getElementById("addresses");
@@ -46,10 +47,9 @@ async function createDropdown() {
             const span = document.createElement('span');
             span.textContent = address;
             option.className = "address-element";
-            option.addEventListener('click', () => {
-                // alert("you clicked an li element!");
-                console.log("you clicked an li element!");
-                // text_box.value = item.textContent;
+            span.addEventListener('click', () => {
+                // console.log("you clicked an li element!");
+                search_input.value = span.textContent;
               });
             // option.value = address;
             option.appendChild(span)
