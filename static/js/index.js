@@ -39,7 +39,6 @@ async function createDropdown() {
     if (address_list) {
         var datalist = document.getElementById("addresses");
         datalist.replaceChildren();
-        console.log(address_list)
         address_list.forEach(address => {
             var datalist = document.getElementById("addresses");
             // const option = document.createElement('option');
@@ -61,7 +60,7 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
-const listItems = document.querySelectorAll("li.address-element");
+const listItems = document.querySelectorAll("li");
 
 listItems.forEach(item => {
   item.addEventListener('click', () => {
