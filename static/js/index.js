@@ -42,8 +42,12 @@ async function createDropdown() {
         console.log(address_list)
         address_list.forEach(address => {
             var datalist = document.getElementById("addresses");
-            const option = document.createElement('option');
-            option.value = address;
+            // const option = document.createElement('option');
+            const option = document.createElement('li');
+            const span = document.createElement('span');
+            span.textContent = address;
+            // option.value = address;
+            option.appendChild(span)
             datalist.appendChild(option);
         });
     }
