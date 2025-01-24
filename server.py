@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, g, redirect
-import sqlite3
+import sqlite3, os, jsonify
 
 app = Flask(__name__)
 
@@ -222,6 +222,13 @@ def add_record():
         records = sorted(records, key=lambda x: x['year'])
         apartments = sorted(apartments, key=lambda x: x['unitnumber'])
         return render_template('records.html', records=records, apartments=apartments)
+
+
+@app.route('/get_token')
+def get_token():
+    mapbox_token = os.getenv('MPBX_API_KEY')
+    # print(f"Hello {os.getenv('VAR_NAME')")
+    return jsonify({'mapbox_token': mapbox_token})
 
 
 @app.route("/apartments")
