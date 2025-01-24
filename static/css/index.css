@@ -19,7 +19,8 @@ li {
     list-style-type: none;
     box-sizing: border-box;
     line-height: 25.6px;
-    padding-left: 2px;
+    padding-left: 0px;
+    margin-left: 0px;
 }
 
 .address-element:hover{
