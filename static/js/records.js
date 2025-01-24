@@ -10,7 +10,7 @@ fetch('/get_token')
             container: 'map',
             style: 'mapbox://styles/mapbox/navigation-night-v1',
             center: [-73.9, 40.7],
-            zoom: 15 // starting zoom (0-22), higher number is more detail
+            zoom: 13 // starting zoom (0-22), higher number is more detail
         });
     });
 
