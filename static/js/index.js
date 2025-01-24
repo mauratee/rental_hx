@@ -46,7 +46,7 @@ async function createDropdown() {
             const option = document.createElement('li');
             const span = document.createElement('span');
             span.textContent = address;
-            span.id = "address"
+            span.id = "address";
             // option.value = address;
             option.appendChild(span)
             datalist.appendChild(option);
