@@ -61,11 +61,11 @@ text_box.addEventListener('input', function(event) {
     createDropdown();
 });
 
-const listItems = document.querySelectorAll("span");
+const listItems = document.querySelectorAll("li.address-element");
 
 listItems.forEach(item => {
   item.addEventListener('click', () => {
-    console.log("you clicked a span element!")
+    console.log("you clicked an li element!");
     // text_box.value = item.textContent;
   });
 
