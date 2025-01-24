@@ -20,14 +20,20 @@
     <div id="map"></div>
 
     {% if apartments %}
+    <div>
       <h3>Records for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}</h3>
+    </div>
     {% else %}
+    <div>
       <h3>Records for {{ housenumber }} {{ street.capitalize() }}, {{  borough.capitalize() }}</h3>
+    </div>
     {% endif %}
 
     {% if records and apartments %}
       {% for apartment in apartments %}
+      <div>
         <h4>{{ apartment['unitnumber'] }}</h4>
+      </div>
         {% for record in records %}
           {% if record['apartment_id'] == apartment['id'] %}
             <div class='record'>

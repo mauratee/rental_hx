@@ -18,7 +18,7 @@ fetch('/get_token')
         mapboxgl.accessToken = mapboxToken;
         const map = new mapboxgl.Map({
             container: 'map', // container ID
-            center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+            center: [-73.9, 40.7], // starting position [lng, lat]. Note that lat must be set between -90 and 90
             zoom: 9 // starting zoom
         });
     });
