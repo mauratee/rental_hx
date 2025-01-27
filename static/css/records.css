@@ -15,3 +15,8 @@ body {
     right: 0; 
     width: 50%; 
 }
+
+.building-address, .apartment-number, .record {
+  padding-left: 12px;
+  line-height: 24px;
+}
