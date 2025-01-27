@@ -31,16 +31,41 @@
     {% if records and apartments %}
       {% for apartment in apartments %}
       <div class='apartment-number'>
-        <h4>APARTMENT NUMBER: {{ apartment['unitnumber'] }}</h4>
+        <p>UNIT NUMBER: {{ apartment['unitnumber'].upper() }}</p>
       </div>
         {% for record in records %}
           {% if record['apartment_id'] == apartment['id'] %}
-            <div class='record'>
-                <p>{{ record['year'] }} apt status: {{ record['status'] }}, apt id: {{ record['apartment_id'] }}, 
+            <table class="record-table">
+            <!-- <div class='record'> -->
+              <tr>
+                <th>
+                  Registration Year
+                </th>
+                <td>
+                  {{ record['year'] }}
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Apartment Status
+                </th>
+                <td>
+                  {{ record['status'] }}
+                </td>
+              </tr>
+                <!-- <p> apt status: {{ record['status'] }}, apt id: {{ record['apartment_id'] }},  -->
                 {% if record['filing_date'] is not none %}
-                  filing date: {{ record['filing_date'] }},
+                  <tr>
+                    <th>
+                      Filing Date
+                    </th>
+                    <td>
+                      {{ record['filing_date'] }}
+                    </td>
+                  </tr>
+                  <!-- filing date: {{ record['filing_date'] }}, -->
                 {% endif %}
-                {% if record['legal_rent'] is not none %}
+                <!-- {% if record['legal_rent'] is not none %}
                   legal rent: {{ record['legal_rent'] }},
                 {% endif %}
                 {% if record['preferential_rent'] is not none %}
@@ -54,7 +79,7 @@
                 {% endif %}
                 {% if record['lease_dates'] is not none %}
                   lease dates: {{ record['lease_dates'] }}</p>
-                {% endif %}
+                {% endif %} -->
             </div>
           {% endif %}
         {% endfor %}

@@ -5,7 +5,8 @@ body {
     color: #0a0a0a;
     display: inline-block;
     margin: 0; 
-    padding: 0; 
+    padding-left: 12px;
+    line-height: 24px;
   }
 
 #map { 
@@ -16,7 +17,18 @@ body {
     width: 50%; 
 }
 
-.building-address, .apartment-number, .record, .new-search {
+.record-table {
+  width: 50%;
+  font-size: 14px;
+  line-height: 20px;
+  color: (36, 35, 35);
+}
+
+.record-table th {
+  background-color: (224, 229, 233);
+  align-items: center;
   padding-left: 12px;
-  line-height: 24px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
