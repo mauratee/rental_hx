@@ -2,7 +2,7 @@
 body {
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
     font-weight: 400;
-    color: #0a0a0a;
+    color:rgb(36, 35, 35);
     display: inline-block;
     margin: 0; 
     padding-left: 12px;
@@ -21,14 +21,20 @@ body {
   width: 50%;
   font-size: 14px;
   line-height: 20px;
-  color: (36, 35, 35);
+  color:rgb(36, 35, 35);
+  border: 1px solid rgb(36, 35, 35);
+  border-collapse: collapse;
 }
 
 .record-table th {
-  background-color: (224, 229, 233);
-  align-items: center;
+  background-color: rgb(224, 229, 233);
+  text-align: left;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 8px;
   padding-bottom: 8px;
+}
+
+th, td {
+  border: 1px solid rgb(36, 35, 35);
 }
