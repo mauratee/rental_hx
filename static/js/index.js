@@ -47,7 +47,7 @@ async function createDropdown() {
             const span = document.createElement('span');
             span.textContent = address;
             option.className = "address-element";
-            span.addEventListener('click', () => {
+            option.addEventListener('click', () => {
                 search_input.value = span.textContent;
               });
             // option.value = address;
