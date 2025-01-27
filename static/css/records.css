@@ -16,7 +16,7 @@ body {
     width: 50%; 
 }
 
-.building-address, .apartment-number, .record {
+.building-address, .apartment-number, .record, .new-search {
   padding-left: 12px;
   line-height: 24px;
 }

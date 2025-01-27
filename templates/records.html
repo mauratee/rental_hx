@@ -10,26 +10,28 @@
   </head>
 
   <body>
-    <p>
-      <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
-    </p>
+    <div class='new-search'>
+      <p>
+        <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
+      </p>
+    </div>
 
     <div id="map"></div>
 
     {% if apartments %}
-    <div>
-      <h3>Records for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}</h3>
+    <div class='building-address'>
+      <p>BUILDING: {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}</p>
     </div>
     {% else %}
-    <div>
-      <h3>Records for {{ housenumber }} {{ street.capitalize() }}, {{  borough.capitalize() }}</h3>
+    <div class='building-address'>
+      <p>BUILDING: {{ housenumber }} {{ street.capitalize() }}, {{  borough.capitalize() }}</p>
     </div>
     {% endif %}
 
     {% if records and apartments %}
       {% for apartment in apartments %}
-      <div>
-        <h4>{{ apartment['unitnumber'] }}</h4>
+      <div class='apartment-number'>
+        <h4>APARTMENT NUMBER: {{ apartment['unitnumber'] }}</h4>
       </div>
         {% for record in records %}
           {% if record['apartment_id'] == apartment['id'] %}
