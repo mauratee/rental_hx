@@ -65,21 +65,61 @@
                   </tr>
                   <!-- filing date: {{ record['filing_date'] }}, -->
                 {% endif %}
-                <!-- {% if record['legal_rent'] is not none %}
-                  legal rent: {{ record['legal_rent'] }},
+                {% if record['legal_rent'] is not none %}
+                  <tr>
+                    <th>
+                      Legal Rent
+                    </th>
+                    <td>
+                      {{ record['legal_rent'] }}
+                    </td>
+                  </tr>
+                  <!-- legal rent: {{ record['legal_rent'] }}, -->
                 {% endif %}
                 {% if record['preferential_rent'] is not none %}
-                  preferential rent: {{ record['preferential_rent'] }},
+                  <tr>
+                    <th>
+                      Preferential Rent
+                    </th>
+                    <td>
+                      {{ record['preferential_rent'] }}
+                    </td>
+                  </tr>
+                  <!-- preferential rent: {{ record['preferential_rent'] }}, -->
                 {% endif %}
                 {% if record['actual_rent'] is not none %}
-                  actual rent: {{ record['actual_rent'] }},
+                  <tr>
+                    <th>
+                      Actual Rent
+                    </th>
+                    <td>
+                      {{ record['actual_rent'] }}
+                    </td>
+                  </tr>
+                  <!-- actual rent: {{ record['actual_rent'] }}, -->
                 {% endif %}
                 {% if record['reasons_difference'] is not none %}
-                  reasons different: {{ record['reasons_difference'] }},
+                  <tr>
+                    <th>
+                      Reasons Different / Change
+                    </th>
+                    <td>
+                      {{ record['reasons_difference'] }}
+                    </td>
+                  </tr>
+                  <!-- reasons different: {{ record['reasons_difference'] }}, -->
                 {% endif %}
                 {% if record['lease_dates'] is not none %}
-                  lease dates: {{ record['lease_dates'] }}</p>
-                {% endif %} -->
+                  <tr>
+                    <th>
+                      Lease Dates
+                    </th>
+                    <td>
+                      {{ record['lease_dates'] }}
+                    </td>
+                  </tr>
+                  <!-- lease dates: {{ record['lease_dates'] }}</p> -->
+                {% endif %}
             </div>
           {% endif %}
         {% endfor %}
