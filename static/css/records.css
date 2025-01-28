@@ -46,9 +46,9 @@ th, td {
 }
 
 .record-submission {
-  width: 983px;
-  margin-left: 264.6px;
-  margin-right: 264.6px;
+  width: 672px;
+  margin-left: 412px;
+  margin-right: 412px;
 }
 
 .add-record-title {
@@ -63,4 +63,19 @@ form {
   display: flex;
   justify-content: flex-end;
   padding: 6.4px;
+}
+
+.form-input > label {
+  flex-basis: 0%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding-right: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.form-input > input {
+  flex-basis: 0%;
+  flex-grow: 2;
+  flex-shrink: 1;
 }

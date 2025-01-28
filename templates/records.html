@@ -157,13 +157,15 @@
                   {% endfor %}
                 </select>
               </div>
+              <div class="form-input">
               OR
+              </div>
 
             {% endif %}
             
             <div class="form-input">
               <label for="unitnumber">Enter a Unit Number:</label>
-              <input type="text" id="unitnumber" name="unitnumber"/>
+              <input type="text" id="unitnumber" name="unitnumber" maxlength="10"/>
             </div>
 
             <div class="form-input">
@@ -196,32 +198,29 @@
 
             <div class="form-input">
               <label for="legal-rent">Legal Regulated Rent:</label>
-              <input type="text" id="legal-rent" name="legal-rent"/>
+              <input type="text" id="legal-rent" name="legal-rent" maxlength="10"/>
             </div>
 
             <div class="form-input">
               <label for="pref-rent">Preferential Rent:</label>
-              <input type="text" id="pref-rent" name="pref-rent"/>
+              <input type="text" id="pref-rent" name="pref-rent" maxlength="10"/>
             </div>
 
             <div class="form-input">
               <label for="actual-rent">Actual Rent Paid:</label>
-              <input type="text" id="actual-rent" name="actual-rent"/>
+              <input type="text" id="actual-rent" name="actual-rent" maxlength="10"/>
             </div>
 
             <div class="form-input">
               <label for="reasons-diff">Reasons Different or Change:</label>
-              <input type="text" id="reasons-diff" name="reasons-diff"/>
+              <input type="text" id="reasons-diff" name="reasons-diff" maxlength="255"/>
             </div>
 
             <div class="form-input">
               <label for="lease-dates">Lease Dates:</label>
-              <input type="text" id="lease-dates" name="lease-dates"/>
+              <input type="text" id="lease-dates" name="lease-dates" maxlength="255"/>
             </div>
 
-            <!-- {% if apartment_id %}
-              <input type="hidden" name="apartment_id" value="{{ apartment_id }}">
-            {% endif %} -->
             {% if housenumber %}
               <input type="hidden" name="housenumber" value="{{ housenumber }}">
             {% endif %}
