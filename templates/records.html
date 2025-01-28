@@ -140,72 +140,78 @@
         <form action="/add-record" method="post">
           {% if apartments %}
 
-            <label for="unit">Choose a unit:</label>
-            <select id="unit" name="unit">
-              {% for apartment in apartments %}
-              <option value="{{apartment['unitnumber']}}">{{apartment['unitnumber']}}</option>
-              {% endfor %}
-            </select>
+            <div>
+              <label for="unit">Choose a unit:</label>
+              <select id="unit" name="unit">
+                {% for apartment in apartments %}
+                <option value="{{apartment['unitnumber']}}">{{apartment['unitnumber']}}</option>
+                {% endfor %}
+              </select>
+            </div>
             OR
           {% endif %}
           
-          <p>
+          <div>
             <label for="unitnumber">Enter a Unit Number:</label>
             <input type="text" id="unitnumber" name="unitnumber"/>
-          </p>
+          </div>
 
-          <label for="year">Choose a year:</label>
-          <select id="year" name="year" required="true">
-            {% for year in range (1984, 2025) %}
-              <option value="{{year}}">{{year}}</option>
-            {% endfor %}
-          </select>
+          <div>
+            <label for="year">Choose a year:</label>
+            <select id="year" name="year" required="true">
+              {% for year in range (1984, 2025) %}
+                <option value="{{year}}">{{year}}</option>
+              {% endfor %}
+            </select>
+          </div>
 
-          <label for="status">Apartment Status:</label>
-          <select id="status" name="status" required="true">
-            <option value="rs">RS - Rent Stabilized</option>
-            <option value="rc">RC - Rent Controlled</option>
-            <option value="rsts">RS-TS - Temporarily Exempt</option>
-            <option value="pe">PE - Permanently Exempt</option>
-            <option value="rsv">RS-V - Vacant</option>
-            <option value="rsnh">RS-NH - Not For Profit Homeless Unit</option>
-            <option value="rnf">Registration Not Found for Subject Premises</option>
-            <option value="ex">Exempt Apartment - Registration Not Required</option>
-          </select>
+          <div>
+            <label for="status">Apartment Status:</label>
+            <select id="status" name="status" required="true">
+              <option value="rs">RS - Rent Stabilized</option>
+              <option value="rc">RC - Rent Controlled</option>
+              <option value="rsts">RS-TS - Temporarily Exempt</option>
+              <option value="pe">PE - Permanently Exempt</option>
+              <option value="rsv">RS-V - Vacant</option>
+              <option value="rsnh">RS-NH - Not For Profit Homeless Unit</option>
+              <option value="rnf">Registration Not Found for Subject Premises</option>
+              <option value="ex">Exempt Apartment - Registration Not Required</option>
+            </select>
+          </div>
           
-          <p>
-          <label for="filing-date">Filing date:</label>
-          <input type="date" id="filing-date" name="filing-date" value="" min="1984-01-01" max="2026-01-01" />
-          </p>
+          <div>
+            <label for="filing-date">Filing date:</label>
+            <input type="date" id="filing-date" name="filing-date" value="" min="1984-01-01" max="2026-01-01" />
+          </div>
 
-          <p>
+          <div>
             <label for="legal-rent">Legal Regulated Rent:</label>
             <input type="text" id="legal-rent" name="legal-rent"/>
-          </p>
+          </div>
 
-          <p>
+          <div>
             <label for="pref-rent">Preferential Rent:</label>
             <input type="text" id="pref-rent" name="pref-rent"/>
-          </p>
+          </div>
 
-          <p>
+          <div>
             <label for="actual-rent">Actual Rent Paid:</label>
             <input type="text" id="actual-rent" name="actual-rent"/>
-          </p>
+          </div>
 
-          <p>
+          <div>
             <label for="reasons-diff">Reasons Different or Change:</label>
             <input type="text" id="reasons-diff" name="reasons-diff"/>
-          </p>
+          </div>
 
-          <p>
+          <div>
             <label for="lease-dates">Lease Dates:</label>
             <input type="text" id="lease-dates" name="lease-dates"/>
-          </p>
+          </div>
 
-          {% if apartment_id %}
+          <!-- {% if apartment_id %}
             <input type="hidden" name="apartment_id" value="{{ apartment_id }}">
-          {% endif %}
+          {% endif %} -->
           {% if housenumber %}
             <input type="hidden" name="housenumber" value="{{ housenumber }}">
           {% endif %}
