@@ -75,7 +75,8 @@ form {
   text-align: right;
 }
 
-.form-input > input {
+.form-input > input, 
+.form-input > select {
   flex-basis: 0%;
   flex-grow: 2;
   flex-shrink: 1;
