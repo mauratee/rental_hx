@@ -149,7 +149,7 @@
             
             {% if apartments %}
 
-              <div>
+              <div class="form-input">
                 <label for="unit">Choose a unit:</label>
                 <select id="unit" name="unit">
                   {% for apartment in apartments %}
@@ -161,12 +161,12 @@
 
             {% endif %}
             
-            <div>
+            <div class="form-input">
               <label for="unitnumber">Enter a Unit Number:</label>
               <input type="text" id="unitnumber" name="unitnumber"/>
             </div>
 
-            <div>
+            <div class="form-input">
               <label for="year">Choose a year:</label>
               <select id="year" name="year" required="true">
                 {% for year in range (1984, 2025) %}
@@ -175,7 +175,7 @@
               </select>
             </div>
 
-            <div>
+            <div class="form-input">
               <label for="status">Apartment Status:</label>
               <select id="status" name="status" required="true">
                 <option value="rs">RS - Rent Stabilized</option>
@@ -189,32 +189,32 @@
               </select>
             </div>
             
-            <div>
+            <div class="form-input">
               <label for="filing-date">Filing date:</label>
               <input type="date" id="filing-date" name="filing-date" value="" min="1984-01-01" max="2026-01-01" />
             </div>
 
-            <div>
+            <div class="form-input">
               <label for="legal-rent">Legal Regulated Rent:</label>
               <input type="text" id="legal-rent" name="legal-rent"/>
             </div>
 
-            <div>
+            <div class="form-input">
               <label for="pref-rent">Preferential Rent:</label>
               <input type="text" id="pref-rent" name="pref-rent"/>
             </div>
 
-            <div>
+            <div class="form-input">
               <label for="actual-rent">Actual Rent Paid:</label>
               <input type="text" id="actual-rent" name="actual-rent"/>
             </div>
 
-            <div>
+            <div class="form-input">
               <label for="reasons-diff">Reasons Different or Change:</label>
               <input type="text" id="reasons-diff" name="reasons-diff"/>
             </div>
 
-            <div>
+            <div class="form-input">
               <label for="lease-dates">Lease Dates:</label>
               <input type="text" id="lease-dates" name="lease-dates"/>
             </div>
