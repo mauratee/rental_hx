@@ -85,3 +85,8 @@ form {
 .or {
   text-align: center;
 }
+
+.form-input > button {
+  padding: 6px;
+  text-align: center;
+}
