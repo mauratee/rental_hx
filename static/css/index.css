@@ -33,6 +33,12 @@ ul {
   text-align: left;
 }
 
-.address-element:hover{
+.address-element:hover {
   background-color: lightpink;
+}
+
+.home-page-content {
+  width: 983px;
+  margin-left: 264.6px;
+  margin-right: 264.6px;
 }

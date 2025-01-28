@@ -7,22 +7,25 @@
     <link href="/static/css/index.css" rel="stylesheet">
   </head>
 
-  <div>
-    <h3>NYC Rental History Database</h3>
-  </div>
-
   <body>
-    <form action="/search-handling" method="post">
-        <p>
-          <input id="search" name="address_search" placeholder="Search for an NYC address..." list="addresses" autocomplete="off" />
-          <!-- <datalist id="addresses"></datalist> -->
-           <ul id="addresses"></ul>
-        </p>
-    </form>
 
-    <p>
-        Search the database of user-uploaded rent history reports from NY State Division of Housing and Community Renewal
-    </p>
+    <div class="home-page-content">
+        <div>
+            <h3>NYC Rental History Database</h3>
+        </div>
+
+        <form action="/search-handling" method="post">
+            <p>
+            <input id="search" name="address_search" placeholder="Search for an NYC address..." list="addresses" autocomplete="off" />
+            <!-- <datalist id="addresses"></datalist> -->
+            <ul id="addresses"></ul>
+            </p>
+        </form>
+
+        <p>
+            Search the database of user-uploaded rent history reports from NY State Division of Housing and Community Renewal
+        </p>
+    </div>
     
     <script src="/static/js/index.js"></script>
   </body>
