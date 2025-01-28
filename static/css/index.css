@@ -24,13 +24,18 @@ li {
     box-sizing: border-box;
     line-height: 25.6px;
     text-align: left;
-    padding-left: 0px;
-    margin-left: 0px;
+    padding-left: 10px;
 }
 
 ul {
-  padding-left: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   margin-left: 0px;
+  margin-right: 0px;
   text-align: left;
   background-color: white;
 }
