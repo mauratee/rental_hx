@@ -33,7 +33,7 @@
       <div class='apartment-number'>
         <p>UNIT NUMBER: {{ apartment['unitnumber'].upper() }}</p>
       </div>
-        {% for record[0] in records %}
+        {% for record in records %}
           {% if record['apartment_id'] == apartment['id'] %}
             <table class="record-table">
               <col style="width: 65%;" />
