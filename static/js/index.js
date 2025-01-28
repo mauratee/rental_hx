@@ -49,6 +49,7 @@ async function createDropdown() {
             option.addEventListener('click', () => {
                 search_input.value = span.textContent;
                 search_input.focus()
+                datalist.replaceChildren();
               });
             option.appendChild(span)
             datalist.appendChild(option);
