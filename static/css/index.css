@@ -3,6 +3,9 @@ body {
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
     font-weight: 400;
     color: #0a0a0a;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
 input {
