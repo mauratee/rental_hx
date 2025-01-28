@@ -42,15 +42,14 @@ async function createDropdown() {
         datalist.replaceChildren();
         address_list.forEach(address => {
             var datalist = document.getElementById("addresses");
-            // const option = document.createElement('option');
             const option = document.createElement('li');
             const span = document.createElement('span');
             span.textContent = address;
             option.className = "address-element";
             option.addEventListener('click', () => {
                 search_input.value = span.textContent;
+                search_input.focus()
               });
-            // option.value = address;
             option.appendChild(span)
             datalist.appendChild(option);
         });
