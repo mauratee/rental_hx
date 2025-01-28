@@ -86,7 +86,7 @@ form {
   text-align: center;
 }
 
-.form-input > button {
+#submit-button {
   padding: 6px;
   text-align: center;
 }
