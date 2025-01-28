@@ -10,220 +10,221 @@
   </head>
 
   <body>
-    <div class='new-search'>
-      <p>
-        <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
-      </p>
-    </div>
 
-    <div id="map"></div>
-
-    {% if apartments %}
-    <div class='building-address'>
-      <p>BUILDING: {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}</p>
-    </div>
-    {% else %}
-    <div class='building-address'>
-      <p>BUILDING: {{ housenumber }} {{ street.capitalize() }}, {{  borough.capitalize() }}</p>
-    </div>
-    {% endif %}
-
-    {% if records and apartments %}
-      {% for apartment in apartments %}
-      <div class='apartment-number'>
-        <p>UNIT NUMBER: {{ apartment['unitnumber'].upper() }}</p>
+    <div class="records-content">
+      <div class='new-search'>
+          <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
       </div>
-        {% for record in records %}
-          {% if record['apartment_id'] == apartment['id'] %}
-            <table class="record-table">
-              <col style="width: 65%;" />
-              <col style="width: 35%;" />
-            <!-- <div class='record'> -->
-              <tr>
-                <th>
-                  Registration Year
-                </th>
-                <td>
-                  {{ record['year'] }}
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  Apartment Status
-                </th>
-                <td>
-                  {{ record['status'] }}
-                </td>
-              </tr>
-                <!-- <p> apt status: {{ record['status'] }}, apt id: {{ record['apartment_id'] }},  -->
-                {% if record['filing_date'] is not none %}
-                  <tr>
-                    <th>
-                      Filing Date
-                    </th>
-                    <td>
-                      {{ record['filing_date'] }}
-                    </td>
-                  </tr>
-                  <!-- filing date: {{ record['filing_date'] }}, -->
-                {% endif %}
-                {% if record['legal_rent'] is not none %}
-                  <tr>
-                    <th>
-                      Legal Rent
-                    </th>
-                    <td>
-                      {{ record['legal_rent'] }}
-                    </td>
-                  </tr>
-                  <!-- legal rent: {{ record['legal_rent'] }}, -->
-                {% endif %}
-                {% if record['preferential_rent'] is not none %}
-                  <tr>
-                    <th>
-                      Preferential Rent
-                    </th>
-                    <td>
-                      {{ record['preferential_rent'] }}
-                    </td>
-                  </tr>
-                  <!-- preferential rent: {{ record['preferential_rent'] }}, -->
-                {% endif %}
-                {% if record['actual_rent'] is not none %}
-                  <tr>
-                    <th>
-                      Actual Rent
-                    </th>
-                    <td>
-                      {{ record['actual_rent'] }}
-                    </td>
-                  </tr>
-                  <!-- actual rent: {{ record['actual_rent'] }}, -->
-                {% endif %}
-                {% if record['reasons_difference'] is not none %}
-                  <tr>
-                    <th>
-                      Reasons Different / Change
-                    </th>
-                    <td>
-                      {{ record['reasons_difference'] }}
-                    </td>
-                  </tr>
-                  <!-- reasons different: {{ record['reasons_difference'] }}, -->
-                {% endif %}
-                {% if record['lease_dates'] is not none %}
-                  <tr>
-                    <th>
-                      Lease Dates
-                    </th>
-                    <td>
-                      {{ record['lease_dates'] }}
-                    </td>
-                  </tr>
-                  <!-- lease dates: {{ record['lease_dates'] }}</p> -->
-                {% endif %}
-            </div>
-          {% endif %}
+
+      <div id="map"></div>
+
+      {% if apartments %}
+      <div class='building-address'>
+        BUILDING: {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}
+      </div>
+      {% else %}
+      <div class='building-address'>
+        BUILDING: {{ housenumber }} {{ street.capitalize() }}, {{  borough.capitalize() }}
+      </div>
+      {% endif %}
+
+      {% if records and apartments %}
+        {% for apartment in apartments %}
+        <div class='apartment-number'>
+          UNIT NUMBER: {{ apartment['unitnumber'].upper() }}
+        </div>
+          {% for record in records %}
+            {% if record['apartment_id'] == apartment['id'] %}
+              <table class="record-table">
+                <col style="width: 65%;" />
+                <col style="width: 35%;" />
+              <!-- <div class='record'> -->
+                <tr>
+                  <th>
+                    Registration Year
+                  </th>
+                  <td>
+                    {{ record['year'] }}
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Apartment Status
+                  </th>
+                  <td>
+                    {{ record['status'] }}
+                  </td>
+                </tr>
+                  <!-- <p> apt status: {{ record['status'] }}, apt id: {{ record['apartment_id'] }},  -->
+                  {% if record['filing_date'] is not none %}
+                    <tr>
+                      <th>
+                        Filing Date
+                      </th>
+                      <td>
+                        {{ record['filing_date'] }}
+                      </td>
+                    </tr>
+                    <!-- filing date: {{ record['filing_date'] }}, -->
+                  {% endif %}
+                  {% if record['legal_rent'] is not none %}
+                    <tr>
+                      <th>
+                        Legal Rent
+                      </th>
+                      <td>
+                        {{ record['legal_rent'] }}
+                      </td>
+                    </tr>
+                    <!-- legal rent: {{ record['legal_rent'] }}, -->
+                  {% endif %}
+                  {% if record['preferential_rent'] is not none %}
+                    <tr>
+                      <th>
+                        Preferential Rent
+                      </th>
+                      <td>
+                        {{ record['preferential_rent'] }}
+                      </td>
+                    </tr>
+                    <!-- preferential rent: {{ record['preferential_rent'] }}, -->
+                  {% endif %}
+                  {% if record['actual_rent'] is not none %}
+                    <tr>
+                      <th>
+                        Actual Rent
+                      </th>
+                      <td>
+                        {{ record['actual_rent'] }}
+                      </td>
+                    </tr>
+                    <!-- actual rent: {{ record['actual_rent'] }}, -->
+                  {% endif %}
+                  {% if record['reasons_difference'] is not none %}
+                    <tr>
+                      <th>
+                        Reasons Different / Change
+                      </th>
+                      <td>
+                        {{ record['reasons_difference'] }}
+                      </td>
+                    </tr>
+                    <!-- reasons different: {{ record['reasons_difference'] }}, -->
+                  {% endif %}
+                  {% if record['lease_dates'] is not none %}
+                    <tr>
+                      <th>
+                        Lease Dates
+                      </th>
+                      <td>
+                        {{ record['lease_dates'] }}
+                      </td>
+                    </tr>
+                    <!-- lease dates: {{ record['lease_dates'] }}</p> -->
+                  {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
         {% endfor %}
-      {% endfor %}
 
-    {% else %}
-      <p>There are no records yet for the address you entered. Request your rent history using this <a href="https://app.justfix.org/en/rh/splash">link</a> or add a new record below.</p>
-    {% endif %}
+      {% else %}
+        <p>There are no records yet for the address you entered. Request your rent history using this <a href="https://app.justfix.org/en/rh/splash">link</a> or add a new record below.</p>
+      {% endif %}
 
-    {% if apartments %}
-      <h3>Add a Record for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{ apartments[0]['borough'].capitalize() }}</h3>
-    {% else %}
-      <h3>Add a Record for {{ housenumber }} {{ street }}, {{  borough }}</h3>
-    {% endif %}
-    
-      <form action="/add-record" method="post">
-        {% if apartments %}
-        <p>
-          <label for="unit">Choose a unit:</label>
-          <select id="unit" name="unit">
-            {% for apartment in apartments %}
-            <option value="{{apartment['unitnumber']}}">{{apartment['unitnumber']}}</option>
+      {% if apartments %}
+        <h3>Add a Record for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{ apartments[0]['borough'].capitalize() }}</h3>
+      {% else %}
+        <h3>Add a Record for {{ housenumber }} {{ street }}, {{  borough }}</h3>
+      {% endif %}
+      
+        <form action="/add-record" method="post">
+          {% if apartments %}
+
+            <label for="unit">Choose a unit:</label>
+            <select id="unit" name="unit">
+              {% for apartment in apartments %}
+              <option value="{{apartment['unitnumber']}}">{{apartment['unitnumber']}}</option>
+              {% endfor %}
+            </select>
+            OR
+          {% endif %}
+          
+          <p>
+            <label for="unitnumber">Enter a Unit Number:</label>
+            <input type="text" id="unitnumber" name="unitnumber"/>
+          </p>
+
+          <label for="year">Choose a year:</label>
+          <select id="year" name="year" required="true">
+            {% for year in range (1984, 2025) %}
+              <option value="{{year}}">{{year}}</option>
             {% endfor %}
           </select>
-        </p>
-        <p>OR</p>
-        {% endif %}
-        
-        <p>
-          <label for="unitnumber">Enter a Unit Number:</label>
-          <input type="text" id="unitnumber" name="unitnumber"/>
-        </p>
 
-        <label for="year">Choose a year:</label>
-        <select id="year" name="year" required="true">
-          {% for year in range (1984, 2025) %}
-            <option value="{{year}}">{{year}}</option>
-          {% endfor %}
-        </select>
+          <label for="status">Apartment Status:</label>
+          <select id="status" name="status" required="true">
+            <option value="rs">RS - Rent Stabilized</option>
+            <option value="rc">RC - Rent Controlled</option>
+            <option value="rsts">RS-TS - Temporarily Exempt</option>
+            <option value="pe">PE - Permanently Exempt</option>
+            <option value="rsv">RS-V - Vacant</option>
+            <option value="rsnh">RS-NH - Not For Profit Homeless Unit</option>
+            <option value="rnf">Registration Not Found for Subject Premises</option>
+            <option value="ex">Exempt Apartment - Registration Not Required</option>
+          </select>
+          
+          <p>
+          <label for="filing-date">Filing date:</label>
+          <input type="date" id="filing-date" name="filing-date" value="" min="1984-01-01" max="2026-01-01" />
+          </p>
 
-        <label for="status">Apartment Status:</label>
-        <select id="status" name="status" required="true">
-          <option value="rs">RS - Rent Stabilized</option>
-          <option value="rc">RC - Rent Controlled</option>
-          <option value="rsts">RS-TS - Temporarily Exempt</option>
-          <option value="pe">PE - Permanently Exempt</option>
-          <option value="rsv">RS-V - Vacant</option>
-          <option value="rsnh">RS-NH - Not For Profit Homeless Unit</option>
-          <option value="rnf">Registration Not Found for Subject Premises</option>
-          <option value="ex">Exempt Apartment - Registration Not Required</option>
-        </select>
-        
-        <p>
-        <label for="filing-date">Filing date:</label>
-        <input type="date" id="filing-date" name="filing-date" value="" min="1984-01-01" max="2026-01-01" />
-        </p>
+          <p>
+            <label for="legal-rent">Legal Regulated Rent:</label>
+            <input type="text" id="legal-rent" name="legal-rent"/>
+          </p>
 
-        <p>
-          <label for="legal-rent">Legal Regulated Rent:</label>
-          <input type="text" id="legal-rent" name="legal-rent"/>
-        </p>
+          <p>
+            <label for="pref-rent">Preferential Rent:</label>
+            <input type="text" id="pref-rent" name="pref-rent"/>
+          </p>
 
-        <p>
-          <label for="pref-rent">Preferential Rent:</label>
-          <input type="text" id="pref-rent" name="pref-rent"/>
-        </p>
+          <p>
+            <label for="actual-rent">Actual Rent Paid:</label>
+            <input type="text" id="actual-rent" name="actual-rent"/>
+          </p>
 
-        <p>
-          <label for="actual-rent">Actual Rent Paid:</label>
-          <input type="text" id="actual-rent" name="actual-rent"/>
-        </p>
+          <p>
+            <label for="reasons-diff">Reasons Different or Change:</label>
+            <input type="text" id="reasons-diff" name="reasons-diff"/>
+          </p>
 
-        <p>
-          <label for="reasons-diff">Reasons Different or Change:</label>
-          <input type="text" id="reasons-diff" name="reasons-diff"/>
-        </p>
+          <p>
+            <label for="lease-dates">Lease Dates:</label>
+            <input type="text" id="lease-dates" name="lease-dates"/>
+          </p>
 
-        <p>
-          <label for="lease-dates">Lease Dates:</label>
-          <input type="text" id="lease-dates" name="lease-dates"/>
-        </p>
+          {% if apartment_id %}
+            <input type="hidden" name="apartment_id" value="{{ apartment_id }}">
+          {% endif %}
+          {% if housenumber %}
+            <input type="hidden" name="housenumber" value="{{ housenumber }}">
+          {% endif %}
+          {% if street %}
+            <input type="hidden" name="street" value="{{ street }}">
+          {% endif %}
+          {% if borough %}
+            <input type="hidden" name="borough" value="{{ borough }}">
+          {% endif %}
+          {% if apartments %}
+            <input type="hidden" name="housenumber" value="{{ apartments[0]['housenumber'] }}">
+            <input type="hidden" name="street" value="{{ apartments[0]['street'] }}">
+            <input type="hidden" name="borough" value="{{ apartments[0]['borough'] }}">
+          {% endif %}
 
-        {% if apartment_id %}
-          <input type="hidden" name="apartment_id" value="{{ apartment_id }}">
-        {% endif %}
-        {% if housenumber %}
-          <input type="hidden" name="housenumber" value="{{ housenumber }}">
-        {% endif %}
-        {% if street %}
-          <input type="hidden" name="street" value="{{ street }}">
-        {% endif %}
-        {% if borough %}
-          <input type="hidden" name="borough" value="{{ borough }}">
-        {% endif %}
-        {% if apartments %}
-          <input type="hidden" name="housenumber" value="{{ apartments[0]['housenumber'] }}">
-          <input type="hidden" name="street" value="{{ apartments[0]['street'] }}">
-          <input type="hidden" name="borough" value="{{ apartments[0]['borough'] }}">
-        {% endif %}
+          <input type="submit">
+        </form>
 
-        <input type="submit">
-      </form>
+    </div>
 
       <script src="/static/js/records.js"></script>
   </body>
