@@ -227,7 +227,6 @@ def add_record():
 @app.route('/get_token')
 def get_token():
     mapbox_token = os.getenv('MPBX_API_KEY')
-    # print(f"Hello {os.getenv('VAR_NAME')")
     return jsonify({'mapbox_token': mapbox_token})
 
 
