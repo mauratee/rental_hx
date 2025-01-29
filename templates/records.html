@@ -64,13 +64,14 @@
               </th>
             </tr>
           {% for record in records %}
-            <div>
-            record[apt_id]: {{record['apartment_id']}}
-            </div>
-            <div>
-              apartment[id]: {{apartment['id']}}
-            </div>
+            
             {% if record['apartment_id'] == apartment['id'] %}
+            <div>
+              record[apt_id]: {{record['apartment_id']}}
+              </div>
+              <div>
+                apartment[id]: {{apartment['id']}}
+              </div>
                 <tr>
                   <td>
                     {{ record['year'] }}
