@@ -64,6 +64,7 @@ form {
   display: flex;
   justify-content: flex-end;
   padding: 6.4px;
+  width: 100%;
 }
 
 .form-input > label {
