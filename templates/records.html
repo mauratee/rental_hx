@@ -11,7 +11,7 @@
 
   <body>
 
-    <div class="records-content">
+    
       <div class='new-search'>
           <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
       </div>
@@ -28,6 +28,7 @@
       </div>
       {% endif %}
 
+      <div class="records-content"></div>
       {% if records and apartments %}
         {% for apartment in apartments %}
         <div class='apartment-number'>
@@ -63,6 +64,12 @@
               </th>
             </tr>
           {% for record in records %}
+            <div>
+            record[apt_id]: {{record['apartment_id']}}
+            </div>
+            <div>
+              apartment[id]: {{apartment['id']}}
+            </div>
             {% if record['apartment_id'] == apartment['id'] %}
                 <tr>
                   <td>
@@ -92,7 +99,7 @@
                 </tr>
                   {% endif %}
                 {% endfor %}
-              </div>
+        </div>
         {% endfor %}
 
       {% else %}
