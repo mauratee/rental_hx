@@ -66,12 +66,12 @@
           {% for record in records %}
             
             {% if record['apartment_id'] == apartment['id'] %}
-            <div>
+            <!-- <div>
               record[apt_id]: {{record['apartment_id']}}
               </div>
               <div>
                 apartment[id]: {{apartment['id']}}
-              </div>
+              </div> -->
                 <tr>
                   <td>
                     {{ record['year'] }}
@@ -98,8 +98,8 @@
                     {{ record['lease_dates'] }}
                   </td>
                 </tr>
-                  {% endif %}
-                {% endfor %}
+            {% endif %}
+          {% endfor %}
         </div>
         {% endfor %}
 
