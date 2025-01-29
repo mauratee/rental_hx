@@ -25,7 +25,6 @@
       </div>
       {% endif %}
 
-      <!-- <div class="records-content"> -->
 
       {% if records and apartments %}
         {% for apartment in apartments %}
@@ -95,7 +94,6 @@
           {% endfor %}
           </table>
         {% endfor %}
-        <!-- </div> -->
         
 
       {% else %}
@@ -106,11 +104,11 @@
 
         {% if apartments %}
         <div class="add-record-title">
-          <h3>Add a Record for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{ apartments[0]['borough'].capitalize() }}</h3>
+          ADD A NEW RECORD FOR {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].upper() }}, {{ apartments[0]['borough'].upper() }}
         </div>
         {% else %}
         <div class="add-record-title">
-          <h3>Add a Record for {{ housenumber }} {{ street }}, {{  borough }}</h3>
+          ADD A NEW RECORD FOR {{ housenumber }} {{ stree.upper() }}, {{  borough.upper() }}
         </div>
         {% endif %}
 
