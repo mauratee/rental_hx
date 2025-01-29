@@ -6,6 +6,8 @@ body {
     width: 672px;
     margin-left: 412px;
     margin-right: 412px;
+    align-items: center;
+    justify-content: center;
     margin: 0; 
     padding-left: 12px;
     padding-right: 12px;
