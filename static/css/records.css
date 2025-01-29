@@ -91,5 +91,5 @@ form {
 
 #submit-button {
   padding: 6px;
-  text-align: center;
+  display: block;
 }
