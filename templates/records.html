@@ -16,7 +16,7 @@
           <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
       </div>
 
-      <div id="map"></div>
+      <!-- <div id="map"></div> -->
 
       {% if apartments %}
       <div class='building-address'>
@@ -33,98 +33,67 @@
         <div class='apartment-number'>
           UNIT NUMBER: {{ apartment['unitnumber'].upper() }}
         </div>
+          <table class="record-table">
+            <col style="width: 65%;" />
+            <col style="width: 35%;" />
+            <tr>
+              <th>
+                Registration Year
+              </th>
+              <th>
+                Apartment Status
+              </th>
+              <th>
+                Filing Date
+              </th>
+              <th>
+                Legal Rent
+              </th>
+              <th>
+                Preferential Rent
+              </th>
+              <th>
+                Actual Rent
+              </th>
+              <th>
+                Reasons Different / Change
+              </th>
+              <th>
+                Lease Dates
+              </th>
+            </tr>
           {% for record in records %}
             {% if record['apartment_id'] == apartment['id'] %}
-              <table class="record-table">
-                <col style="width: 65%;" />
-                <col style="width: 35%;" />
-              <!-- <div class='record'> -->
                 <tr>
-                  <th>
-                    Registration Year
-                  </th>
                   <td>
                     {{ record['year'] }}
                   </td>
-                </tr>
-                <tr>
-                  <th>
-                    Apartment Status
-                  </th>
                   <td>
                     {{ record['status'] }}
                   </td>
+                  <td>
+                    {{ record['filing_date'] }}
+                  </td>
+                  <td>
+                    {{ record['legal_rent'] }}
+                  </td>
+                  <td>
+                    {{ record['preferential_rent'] }}
+                  </td>
+                  <td>
+                    {{ record['actual_rent'] }}
+                  </td>
+                  <td>
+                    {{ record['reasons_difference'] }}
+                  </td>
+                  <td>
+                    {{ record['lease_dates'] }}
+                  </td>
                 </tr>
-                  <!-- <p> apt status: {{ record['status'] }}, apt id: {{ record['apartment_id'] }},  -->
-                  {% if record['filing_date'] is not none %}
-                    <tr>
-                      <th>
-                        Filing Date
-                      </th>
-                      <td>
-                        {{ record['filing_date'] }}
-                      </td>
-                    </tr>
-                    <!-- filing date: {{ record['filing_date'] }}, -->
                   {% endif %}
-                  {% if record['legal_rent'] is not none %}
-                    <tr>
-                      <th>
-                        Legal Rent
-                      </th>
-                      <td>
-                        {{ record['legal_rent'] }}
-                      </td>
-                    </tr>
-                    <!-- legal rent: {{ record['legal_rent'] }}, -->
-                  {% endif %}
-                  {% if record['preferential_rent'] is not none %}
-                    <tr>
-                      <th>
-                        Preferential Rent
-                      </th>
-                      <td>
-                        {{ record['preferential_rent'] }}
-                      </td>
-                    </tr>
-                    <!-- preferential rent: {{ record['preferential_rent'] }}, -->
-                  {% endif %}
-                  {% if record['actual_rent'] is not none %}
-                    <tr>
-                      <th>
-                        Actual Rent
-                      </th>
-                      <td>
-                        {{ record['actual_rent'] }}
-                      </td>
-                    </tr>
-                    <!-- actual rent: {{ record['actual_rent'] }}, -->
-                  {% endif %}
-                  {% if record['reasons_difference'] is not none %}
-                    <tr>
-                      <th>
-                        Reasons Different / Change
-                      </th>
-                      <td>
-                        {{ record['reasons_difference'] }}
-                      </td>
-                    </tr>
-                    <!-- reasons different: {{ record['reasons_difference'] }}, -->
-                  {% endif %}
-                  {% if record['lease_dates'] is not none %}
-                    <tr>
-                      <th>
-                        Lease Dates
-                      </th>
-                      <td>
-                        {{ record['lease_dates'] }}
-                      </td>
-                    </tr>
-                    <!-- lease dates: {{ record['lease_dates'] }}</p> -->
-                  {% endif %}
+                {% endfor %}
               </div>
-            {% endif %}
-          {% endfor %}
+            <!-- {% endif %} -->
         {% endfor %}
 
       {% else %}
