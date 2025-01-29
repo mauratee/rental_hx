@@ -29,7 +29,7 @@
 
       {% if records and apartments %}
         {% for apartment in apartments %}
-        
+
         <div class='apartment-number'>
           UNIT NUMBER: {{ apartment['unitnumber'].upper() }}
         </div>
@@ -98,6 +98,7 @@
                     {{ record['lease_dates'] }}
                   </td>
                 </tr>
+            </table>
             {% endif %}
           {% endfor %}
         {% endfor %}
