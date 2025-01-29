@@ -25,6 +25,16 @@ body {
     width: 50%; 
 }
 
+.record-content {
+  width: 672px;
+  margin-left: 412px;
+  margin-right: 412px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
 .record-table {
   width: 520px;
   font-size: 14px;
@@ -61,6 +71,7 @@ th, td {
 .add-record-title {
   padding-top: 20px;
   text-align: center;
+  font-size: 22px;
 }
 
 form {
