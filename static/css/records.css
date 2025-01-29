@@ -82,10 +82,12 @@ form {
 
 .or {
   /* text-align: center; */
-  justify-content: center;
+  /* justify-content: center; */
+  align-self: center;
 }
 
 #submit-button {
   padding: 6px;
   /* display: block; */
+  align-self: center;
 }
