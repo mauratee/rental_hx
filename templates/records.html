@@ -11,12 +11,9 @@
 
   <body>
 
-    
       <div class='new-search'>
           <a href="https://nycrentalhistory.rcdis.co/">New Search</a>
       </div>
-
-      <!-- <div id="map"></div> -->
 
       {% if apartments %}
       <div class='building-address'>
@@ -29,11 +26,14 @@
       {% endif %}
 
       <div class="records-content">
+
       {% if records and apartments %}
         {% for apartment in apartments %}
+        
         <div class='apartment-number'>
           UNIT NUMBER: {{ apartment['unitnumber'].upper() }}
         </div>
+
           <table class="record-table">
             <col style="width: 65%;" />
             <col style="width: 35%;" />
@@ -100,8 +100,9 @@
                 </tr>
             {% endif %}
           {% endfor %}
-        </div>
         {% endfor %}
+        </div>
+        
 
       {% else %}
         <p>There are no records yet for the address you entered. Request your rent history using this <a href="https://app.justfix.org/en/rh/splash">link</a> or add a new record below.</p>
@@ -109,114 +110,6 @@
 
       
       
-        <div class="record-submission">
-
-          {% if apartments %}
-          <div class="add-record-title">
-            <h3>Add a Record for {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{ apartments[0]['borough'].capitalize() }}</h3>
-          </div>
-          {% else %}
-          <div class="add-record-title">
-            <h3>Add a Record for {{ housenumber }} {{ street }}, {{  borough }}</h3>
-          </div>
-          {% endif %}
-
-          <form action="/add-record" method="post">
-            
-            {% if apartments %}
-
-              <div class="form-input">
-                <label for="unit">Choose a unit:</label>
-                <select id="unit" name="unit">
-                  {% for apartment in apartments %}
-                  <option value="{{apartment['unitnumber']}}">{{apartment['unitnumber']}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-
-              <div class="or">
-              OR
-              </div>
-
-            {% endif %}
-            
-            <div class="form-input">
-              <label for="unitnumber">Enter a Unit Number:</label>
-              <input type="text" id="unitnumber" name="unitnumber" maxlength="10"/>
-            </div>
-
-            <div class="form-input">
-              <label for="year">Choose a year:</label>
-              <select id="year" name="year" required="true">
-                {% for year in range (1984, 2025) %}
-                  <option value="{{year}}">{{year}}</option>
-                {% endfor %}
-              </select>
-            </div>
-
-            <div class="form-input">
-              <label for="status">Apartment Status:</label>
-              <select id="status" name="status" required="true">
-                <option value="rs">RS - Rent Stabilized</option>
-                <option value="rc">RC - Rent Controlled</option>
-                <option value="rsts">RS-TS - Temporarily Exempt</option>
-                <option value="pe">PE - Permanently Exempt</option>
-                <option value="rsv">RS-V - Vacant</option>
-                <option value="rsnh">RS-NH - Not For Profit Homeless Unit</option>
-                <option value="rnf">Registration Not Found for Subject Premises</option>
-                <option value="ex">Exempt Apartment - Registration Not Required</option>
-              </select>
-            </div>
-            
-            <div class="form-input">
-              <label for="filing-date">Filing Date:</label>
-              <input type="date" id="filing-date" name="filing-date" value="" min="1984-01-01" max="2026-01-01" />
-            </div>
-
-            <div class="form-input">
-              <label for="legal-rent">Legal Regulated Rent:</label>
-              <input type="text" id="legal-rent" name="legal-rent" maxlength="10"/>
-            </div>
-
-            <div class="form-input">
-              <label for="pref-rent">Preferential Rent:</label>
-              <input type="text" id="pref-rent" name="pref-rent" maxlength="10"/>
-            </div>
-
-            <div class="form-input">
-              <label for="actual-rent">Actual Rent Paid:</label>
-              <input type="text" id="actual-rent" name="actual-rent" maxlength="10"/>
-            </div>
-
-            <div class="form-input">
-              <label for="reasons-diff">Reasons Different or Change:</label>
-              <input type="text" id="reasons-diff" name="reasons-diff" maxlength="255"/>
-            </div>
-
-            <div class="form-input">
-              <label for="lease-dates">Lease Dates:</label>
-              <input type="text" id="lease-dates" name="lease-dates" maxlength="255"/>
-            </div>
-
-            {% if housenumber %}
-              <input type="hidden" name="housenumber" value="{{ housenumber }}">
-            {% endif %}
-            {% if street %}
-              <input type="hidden" name="street" value="{{ street }}">
-            {% endif %}
-            {% if borough %}
-              <input type="hidden" name="borough" value="{{ borough }}">
-            {% endif %}
-            {% if apartments %}
-              <input type="hidden" name="housenumber" value="{{ apartments[0]['housenumber'] }}">
-              <input type="hidden" name="street" value="{{ apartments[0]['street'] }}">
-              <input type="hidden" name="borough" value="{{ apartments[0]['borough'] }}">
-            {% endif %}
-
-            <input type="submit" id="submit-button" value="Submit Record" style="font-size:18px">
-          </form>
-        </div>
-
       <script src="/static/js/records.js"></script>
   </body>
 </html>
