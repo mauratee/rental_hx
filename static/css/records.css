@@ -81,7 +81,8 @@ form {
 }
 
 .or {
-  text-align: center;
+  /* text-align: center; */
+  justify-content: center;
 }
 
 #submit-button {
