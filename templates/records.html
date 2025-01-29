@@ -35,8 +35,6 @@
         </div>
 
           <table class="record-table">
-            <col style="width: 65%;" />
-            <col style="width: 35%;" />
             <tr>
               <th>
                 Registration Year
@@ -66,12 +64,7 @@
           {% for record in records %}
             
             {% if record['apartment_id'] == apartment['id'] %}
-            <!-- <div>
-              record[apt_id]: {{record['apartment_id']}}
-              </div>
-              <div>
-                apartment[id]: {{apartment['id']}}
-              </div> -->
+
                 <tr>
                   <td>
                     {{ record['year'] }}
