@@ -24,11 +24,18 @@ body {
   width: 672px;
   margin-left: 412px;
   margin-right: 412px;
-  text-align: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+.building-address {
+  text-align: left;
+}
+
+.apartment-number {
+  text-align: left;
 }
 
 .record-table {
