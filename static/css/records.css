@@ -48,12 +48,12 @@ body {
 }
 
 .record-table th {
-  background-color: rgb(224, 229, 233);
+  background-color: white;
   font-weight: 400;
 }
 
 .record-table td {
-  background-color: white;
+  background-color: rgb((251,252,253))
 }
 
 th, td {
