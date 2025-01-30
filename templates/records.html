@@ -19,11 +19,11 @@
 
       {% if apartments %}
       <div class='building-address'>
-        BUILDING: {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].capitalize() }}, {{  apartments[0]['borough'].capitalize() }}
+        BUILDING: {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].title() }}, {{  apartments[0]['borough'].capitalize() }}
       </div>
       {% else %}
       <div class='building-address'>
-        BUILDING: {{ housenumber }} {{ street.capitalize() }}, {{  borough.capitalize() }}
+        BUILDING: {{ housenumber }} {{ street.title() }}, {{  borough.capitalize() }}
       </div>
       {% endif %}
 
@@ -106,7 +106,7 @@
 
         {% if apartments %}
         <div class="add-record-title">
-          ADD A NEW RECORD FOR {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].upper() }}, {{ apartments[0]['borough'].upper() }}
+          Add A New Record For {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].title() }}, {{ apartments[0]['borough'].capitalize() }}
         </div>
         {% else %}
         <div class="add-record-title">
