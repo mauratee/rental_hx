@@ -41,9 +41,13 @@ body {
 .record-table {
   flex: 1;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 19px;
   color:rgb(36, 35, 35);
-  border: 1px solid rgb(36, 35, 35);
+  border: 1px solid;
+  border-bottom-color: rgb(114, 126, 150);
+  border-top-color: rgb(114, 126, 150);
+  border-left-color: rgb(114, 126, 150);
+  border-right-color: rgb(114, 126, 150);
   border-collapse: collapse;
 }
 
