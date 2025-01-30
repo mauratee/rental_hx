@@ -43,11 +43,6 @@ body {
   font-size: 14px;
   line-height: 19px;
   color:rgb(36, 35, 35);
-  /* border: 1px solid;
-  border-bottom-color: rgb(114, 126, 150);
-  border-top-color: rgb(114, 126, 150);
-  border-left-color: rgb(114, 126, 150);
-  border-right-color: rgb(114, 126, 150); */
   border-collapse: collapse;
 }
 
@@ -78,6 +73,7 @@ th, td {
   width: 672px;
   margin-left: 412px;
   margin-right: 412px;
+  margin-top: 30px:
 }
 
 .add-record-title {
@@ -114,13 +110,10 @@ form {
 }
 
 .or {
-  /* text-align: center; */
-  /* justify-content: center; */
   align-self: center;
 }
 
 #submit-button {
   padding: 6px;
-  /* display: block; */
   align-self: center;
 }
