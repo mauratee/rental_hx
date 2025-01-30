@@ -107,11 +107,11 @@ def add_record():
     db = get_db()
 
     if 'unit' in request.form:
-        unitnumber = request.form['unit'].lower()
+        unitnumber = request.form['unit']
         housenumber = request.form['housenumber']
         street = request.form['street']
         borough = request.form['borough']
-        if 'unitnumber' in request.form and request.form['unitnumber'] != '' and request.form['unitnumber'].lower() != unitnumber:
+        if 'unitnumber' in request.form and request.form['unitnumber'] != '' and request.form['unitnumber'].lower() != unitnumber.lower():
             unitnumber = request.form['unitnumber']
             db.execute("INSERT INTO apartments (housenumber, street, borough, unitnumber) VALUES (?, ?, ?, ?)",
                 (housenumber, street, borough, unitnumber)
