@@ -43,20 +43,23 @@ body {
   font-size: 14px;
   line-height: 19px;
   color:rgb(36, 35, 35);
-  border: 1px solid;
+  /* border: 1px solid;
   border-bottom-color: rgb(114, 126, 150);
   border-top-color: rgb(114, 126, 150);
   border-left-color: rgb(114, 126, 150);
-  border-right-color: rgb(114, 126, 150);
+  border-right-color: rgb(114, 126, 150); */
   border-collapse: collapse;
 }
 
 .record-table th {
+  border-bottom-color: 1px solid rgb(36, 35, 35);
+  border-top-color: 1px solid rgb(36, 35, 35);
   background-color: white;
   font-weight: 400;
 }
 
 .record-table td {
+  border: 1px solid rgb(114, 126, 150);
   background-color: rgb(250,247,245)
 }
 
