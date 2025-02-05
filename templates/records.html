@@ -71,7 +71,7 @@
                     {{ record['year'] }}
                   </td>
                   <td>
-                    {{ record['status'] }}
+                    {{ record['status']|format_status }}
                   </td>
                   <td>
                     {{ record['filing_date'] }}

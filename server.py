@@ -230,6 +230,14 @@ def get_token():
     return jsonify({'mapbox_token': mapbox_token})
 
 
+@app.template_filter('format_status')
+def format_status(status):
+    if status == "rc":
+        return "Rent Controlled"
+    elif status == "rs":
+        return "Rent Stabilized"
+
+
 @app.route("/apartments")
 def all_apartments():
     db = get_db()
