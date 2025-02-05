@@ -236,6 +236,27 @@ def format_status(status):
         return "Rent Controlled"
     elif status == "rs":
         return "Rent Stabilized"
+    elif status == "rsts":
+        return "Temporarily Exempt"
+    elif status == "pe":
+        return "Permanently Exempt"
+    elif status == "rsv":
+        return "Rent Stabilized Vacant"
+    elif status == "rsnh":
+        return "Not For Profit Homeless Unit"
+    elif status == "rnf":
+        return "Registration Not Found"
+    elif status == "ex":
+        return "Exempt Apartment"
+
+@app.template_filter('format_date')
+def format_date(date):
+    day = date_obj.strftime("%d")
+    month = date_obj.strftime("%B")
+    year = date_obj.strftime("%Y")
+
+    return f"{month} {day}, {year}"
+
 
 
 @app.route("/apartments")
