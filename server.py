@@ -251,9 +251,9 @@ def format_status(status):
 
 @app.template_filter('format_date')
 def format_date(date):
-    day = date_obj.strftime("%d")
-    month = date_obj.strftime("%B")
-    year = date_obj.strftime("%Y")
+    day = date.strftime("%d")
+    month = date.strftime("%B")
+    year = date.strftime("%Y")
 
     return f"{month} {day}, {year}"
 
