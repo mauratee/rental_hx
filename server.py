@@ -249,15 +249,6 @@ def format_status(status):
     elif status == "ex":
         return "Exempt Apartment"
 
-@app.template_filter('format_date')
-def format_date(date):
-    day = date.strftime("%d")
-    month = date.strftime("%B")
-    year = date.strftime("%Y")
-
-    return f"{month} {day}, {year}"
-
-
 
 @app.route("/apartments")
 def all_apartments():
