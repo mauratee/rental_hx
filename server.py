@@ -96,6 +96,7 @@ def search_handling():
                     records.append(item)
         records = sorted(records, key=lambda x: x['year'])
         apartments = sorted(apartments, key=lambda x: x['unitnumber'])
+        unit_numbers = sorted(unit_numbers)
         return render_template('records.html', records=records, apartments=apartments, unit_numbers=unit_numbers)
     else:
         db.close()
