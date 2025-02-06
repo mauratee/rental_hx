@@ -81,8 +81,10 @@ def search_handling():
 
     if apartments:
         apt_ids = []
+        unit_numbers = []
         for apartment in apartments:
             apt_ids.append(apartment['id'])
+            unit_numbers.append(apartment['unitnumber'])
         list_of_records = []
         for id in apt_ids:
             list_of_records.append(db.execute('SELECT * FROM records WHERE apartment_id = ?', (id,)).fetchall())
@@ -94,7 +96,7 @@ def search_handling():
                     records.append(item)
         records = sorted(records, key=lambda x: x['year'])
         apartments = sorted(apartments, key=lambda x: x['unitnumber'])
-        return render_template('records.html', records=records, apartments=apartments)
+        return render_template('records.html', records=records, apartments=apartments, unit_numbers=unit_numbers)
     else:
         db.close()
         return render_template('records.html', housenumber=housenumber, street=street, borough=borough)
