@@ -19,7 +19,7 @@
 
       {% if apartments %}
       <div class='building-address'>
-        BUILDING: {{ apartments[0]['housenumber'] }} {{ apartments[0]['street'].title() }}, {{  apartments[0]['borough'].capitalize() }}
+        BUILDING: {{ apartments['housenumber'] }} {{ apartments['street'].title() }}, {{  apartments['borough'].capitalize() }}
       </div>
       {% else %}
       <div class='building-address'>
