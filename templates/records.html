@@ -31,22 +31,9 @@
       {% if records and apartments %}
         {% for apartment in apartments %}
 
-          {% if unit_numbers %}
-
-          <table class="unit-table">
-            <tr>
-              <td>
-                UNIT NUMBER:
-              </td>
-              {% for unit_number in unit_numbers %}
-                <td>
-                  <a href="https://nycrentalhistory.rcdis.co/">{{ unit_number.upper() }}</a>
-                </td>
-              {% endfor %}
-            </tr>
-          </table>
-
-          {% endif %}
+        <div class='apartment-number'>
+          UNIT NUMBER: {{ apartment['unitnumber'].upper() }}
+        </div>
 
           <table class="record-table">
             <tr>
