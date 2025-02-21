@@ -1,0 +1,25 @@
+{
+  "name": "rental_hx",
+  "version": "1.0.0",
+  "description": "nyc rental history site",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauratee/rental_hx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mauratee/rental_hx/issues"
+  },
+  "homepage": "https://github.com/mauratee/rental_hx#readme",
+  "dependencies": {
+    "chromedriver": "^133.0.2",
+    "geckodriver": "^5.0.0",
+    "selenium-webdriver": "^4.29.0",
+    "mocha":"^10.2.0"
+  }
+}
